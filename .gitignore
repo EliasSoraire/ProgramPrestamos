@@ -1,0 +1,100 @@
+##############
+# Visual Studio
+##############
+
+## Archivos y carpetas de usuario
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+*.VC.db
+*.VC.opendb
+
+## Archivos temporales y de depuración
+*.log
+*.tmp
+*.bak
+*.ncb
+*.cache
+*.pdb
+
+##############
+# Build
+##############
+
+bin/
+obj/
+[Bb]uild/
+[Ll]og/
+Debug/
+Release/
+
+##############
+# Archivos específicos de C#
+##############
+
+*.exe
+*.dll
+*.app
+*.msi
+*.config
+*.dbmdl
+*.ipch
+*.tlog
+*.log
+
+##############
+# Otros
+##############
+
+# Archivos de base de datos local
+*.mdf
+*.ldf
+
+# Archivos generados por paquetes NuGet
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Archivos de Rider (JetBrains)
+.idea/
+*.sln.iml
+
+# Configuraciones locales o temporales
+*.orig
+*.rej
+
+# Archivos de publicación
+.publish/
+
+# Archivos de pruebas temporales
+TestResults/
+
+# Archivos de backup de Visual Studio
+*.backup
+*.old
+
+# Archivos de Thumb
+Thumbs.db
+ehthumbs.db
+
+# Archivos del sistema (Windows)
+Desktop.ini
+$RECYCLE.BIN/
+
+# Mac OS
+.DS_Store
+
+# Git conflict files
+*.merge_backup
+*.swp
+*.swo
+*.orig
+
+##############
+# Ignorar paquetes si no se suben
+##############
+packages/
+*.nupkg
+*.nuspec
