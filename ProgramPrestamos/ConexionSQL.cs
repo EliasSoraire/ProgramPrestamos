@@ -14,7 +14,7 @@ namespace ProgramPrestamos
 
         public ConexionSQL()
         {
-            cadenaConexion = "Server=(localdb)\\MSSQLLocalDB;Database=Gestor_Tecnico;Trusted_Connection=True;";
+            cadenaConexion = "Server=(localdb)\\MSSQLLocalDB;Database=PrestamoBDD;Trusted_Connection=True;";
         }
 
         public SqlConnection ObtenerConexion()
