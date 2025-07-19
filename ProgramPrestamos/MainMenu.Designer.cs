@@ -60,7 +60,7 @@
             panelHeader.Dock = DockStyle.Top;
             panelHeader.Location = new Point(0, 0);
             panelHeader.Name = "panelHeader";
-            panelHeader.Size = new Size(1200, 91);
+            panelHeader.Size = new Size(1200, 80);
             panelHeader.TabIndex = 0;
             // 
             // lblSubtitle
@@ -68,7 +68,7 @@
             lblSubtitle.AutoSize = true;
             lblSubtitle.Font = new Font("Segoe UI", 10F);
             lblSubtitle.ForeColor = Color.FromArgb(189, 195, 199);
-            lblSubtitle.Location = new Point(20, 57);
+            lblSubtitle.Location = new Point(20, 50);
             lblSubtitle.Name = "lblSubtitle";
             lblSubtitle.Size = new Size(166, 19);
             lblSubtitle.TabIndex = 1;
@@ -79,7 +79,7 @@
             lblTitle.AutoSize = true;
             lblTitle.Font = new Font("Segoe UI", 18F, FontStyle.Bold);
             lblTitle.ForeColor = Color.White;
-            lblTitle.Location = new Point(20, 17);
+            lblTitle.Location = new Point(20, 15);
             lblTitle.Name = "lblTitle";
             lblTitle.Size = new Size(263, 32);
             lblTitle.TabIndex = 0;
@@ -96,9 +96,9 @@
             panelNavigation.Controls.Add(btnEmpleados);
             panelNavigation.Controls.Add(btnClientes);
             panelNavigation.Dock = DockStyle.Left;
-            panelNavigation.Location = new Point(0, 91);
+            panelNavigation.Location = new Point(0, 80);
             panelNavigation.Name = "panelNavigation";
-            panelNavigation.Size = new Size(200, 589);
+            panelNavigation.Size = new Size(200, 520);
             panelNavigation.TabIndex = 1;
             // 
             // btnResumen
@@ -108,14 +108,15 @@
             btnResumen.FlatStyle = FlatStyle.Flat;
             btnResumen.Font = new Font("Segoe UI", 10F);
             btnResumen.ForeColor = Color.White;
-            btnResumen.Location = new Point(0, 342);
+            btnResumen.Location = new Point(0, 302);
             btnResumen.Name = "btnResumen";
             btnResumen.Padding = new Padding(10, 0, 0, 0);
-            btnResumen.Size = new Size(200, 57);
+            btnResumen.Size = new Size(200, 50);
             btnResumen.TabIndex = 6;
             btnResumen.Text = "📋 Resumen";
             btnResumen.TextAlign = ContentAlignment.MiddleLeft;
             btnResumen.UseVisualStyleBackColor = false;
+            btnResumen.Click += BtnResumen_Click;
             // 
             // btnCaja
             // 
@@ -124,14 +125,15 @@
             btnCaja.FlatStyle = FlatStyle.Flat;
             btnCaja.Font = new Font("Segoe UI", 10F);
             btnCaja.ForeColor = Color.White;
-            btnCaja.Location = new Point(0, 285);
+            btnCaja.Location = new Point(0, 251);
             btnCaja.Name = "btnCaja";
             btnCaja.Padding = new Padding(10, 0, 0, 0);
-            btnCaja.Size = new Size(200, 57);
+            btnCaja.Size = new Size(200, 50);
             btnCaja.TabIndex = 5;
             btnCaja.Text = "💳 Caja";
             btnCaja.TextAlign = ContentAlignment.MiddleLeft;
             btnCaja.UseVisualStyleBackColor = false;
+            btnCaja.Click += BtnCaja_Click;
             // 
             // btnProductos
             // 
@@ -140,14 +142,15 @@
             btnProductos.FlatStyle = FlatStyle.Flat;
             btnProductos.Font = new Font("Segoe UI", 10F);
             btnProductos.ForeColor = Color.White;
-            btnProductos.Location = new Point(0, 228);
+            btnProductos.Location = new Point(0, 201);
             btnProductos.Name = "btnProductos";
             btnProductos.Padding = new Padding(10, 0, 0, 0);
-            btnProductos.Size = new Size(200, 57);
+            btnProductos.Size = new Size(200, 50);
             btnProductos.TabIndex = 4;
             btnProductos.Text = "📦 Productos";
             btnProductos.TextAlign = ContentAlignment.MiddleLeft;
             btnProductos.UseVisualStyleBackColor = false;
+            btnProductos.Click += BtnProductos_Click;
             // 
             // btnNuevoPrestamo
             // 
@@ -156,14 +159,15 @@
             btnNuevoPrestamo.FlatStyle = FlatStyle.Flat;
             btnNuevoPrestamo.Font = new Font("Segoe UI", 10F);
             btnNuevoPrestamo.ForeColor = Color.White;
-            btnNuevoPrestamo.Location = new Point(0, 171);
+            btnNuevoPrestamo.Location = new Point(0, 151);
             btnNuevoPrestamo.Name = "btnNuevoPrestamo";
             btnNuevoPrestamo.Padding = new Padding(10, 0, 0, 0);
-            btnNuevoPrestamo.Size = new Size(200, 57);
+            btnNuevoPrestamo.Size = new Size(200, 50);
             btnNuevoPrestamo.TabIndex = 3;
             btnNuevoPrestamo.Text = "💰 Nuevo Préstamo";
             btnNuevoPrestamo.TextAlign = ContentAlignment.MiddleLeft;
             btnNuevoPrestamo.UseVisualStyleBackColor = false;
+            btnNuevoPrestamo.Click += BtnNuevoPrestamo_Click;
             // 
             // btnEstados
             // 
@@ -172,14 +176,15 @@
             btnEstados.FlatStyle = FlatStyle.Flat;
             btnEstados.Font = new Font("Segoe UI", 10F);
             btnEstados.ForeColor = Color.White;
-            btnEstados.Location = new Point(0, 114);
+            btnEstados.Location = new Point(0, 101);
             btnEstados.Name = "btnEstados";
             btnEstados.Padding = new Padding(10, 0, 0, 0);
-            btnEstados.Size = new Size(200, 57);
+            btnEstados.Size = new Size(200, 50);
             btnEstados.TabIndex = 2;
             btnEstados.Text = "📊 Estados";
             btnEstados.TextAlign = ContentAlignment.MiddleLeft;
             btnEstados.UseVisualStyleBackColor = false;
+            btnEstados.Click += BtnEstados_Click;
             // 
             // btnEmpleados
             // 
@@ -188,14 +193,15 @@
             btnEmpleados.FlatStyle = FlatStyle.Flat;
             btnEmpleados.Font = new Font("Segoe UI", 10F);
             btnEmpleados.ForeColor = Color.White;
-            btnEmpleados.Location = new Point(0, 57);
+            btnEmpleados.Location = new Point(0, 50);
             btnEmpleados.Name = "btnEmpleados";
             btnEmpleados.Padding = new Padding(10, 0, 0, 0);
-            btnEmpleados.Size = new Size(200, 57);
+            btnEmpleados.Size = new Size(200, 50);
             btnEmpleados.TabIndex = 1;
             btnEmpleados.Text = "👨‍💼 Empleados";
             btnEmpleados.TextAlign = ContentAlignment.MiddleLeft;
             btnEmpleados.UseVisualStyleBackColor = false;
+            btnEmpleados.Click += BtnEmpleados_Click;
             // 
             // btnClientes
             // 
@@ -207,19 +213,20 @@
             btnClientes.Location = new Point(0, 0);
             btnClientes.Name = "btnClientes";
             btnClientes.Padding = new Padding(10, 0, 0, 0);
-            btnClientes.Size = new Size(200, 57);
+            btnClientes.Size = new Size(200, 50);
             btnClientes.TabIndex = 0;
             btnClientes.Text = "👥 Clientes";
             btnClientes.TextAlign = ContentAlignment.MiddleLeft;
             btnClientes.UseVisualStyleBackColor = false;
+            btnClientes.Click += BtnClientes_Click;
             // 
             // panelChart
             // 
             panelChart.BackColor = Color.White;
             panelChart.Controls.Add(lblChartTitle);
-            panelChart.Location = new Point(220, 227);
+            panelChart.Location = new Point(220, 200);
             panelChart.Name = "panelChart";
-            panelChart.Size = new Size(960, 431);
+            panelChart.Size = new Size(960, 380);
             panelChart.TabIndex = 2;
             // 
             // lblChartTitle
@@ -227,7 +234,7 @@
             lblChartTitle.AutoSize = true;
             lblChartTitle.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
             lblChartTitle.ForeColor = Color.FromArgb(41, 53, 65);
-            lblChartTitle.Location = new Point(20, 17);
+            lblChartTitle.Location = new Point(20, 15);
             lblChartTitle.Name = "lblChartTitle";
             lblChartTitle.Size = new Size(200, 25);
             lblChartTitle.TabIndex = 0;
@@ -240,9 +247,9 @@
             panelStats.Controls.Add(lblGananciasHoy);
             panelStats.Controls.Add(lblTotalClientes);
             panelStats.Controls.Add(lblTotalPrestamos);
-            panelStats.Location = new Point(220, 113);
+            panelStats.Location = new Point(220, 100);
             panelStats.Name = "panelStats";
-            panelStats.Size = new Size(960, 91);
+            panelStats.Size = new Size(960, 80);
             panelStats.TabIndex = 3;
             // 
             // lblGananciasMes
@@ -250,7 +257,7 @@
             lblGananciasMes.AutoSize = true;
             lblGananciasMes.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             lblGananciasMes.ForeColor = Color.FromArgb(39, 174, 96);
-            lblGananciasMes.Location = new Point(250, 51);
+            lblGananciasMes.Location = new Point(250, 45);
             lblGananciasMes.Name = "lblGananciasMes";
             lblGananciasMes.Size = new Size(131, 21);
             lblGananciasMes.TabIndex = 3;
@@ -261,7 +268,7 @@
             lblGananciasHoy.AutoSize = true;
             lblGananciasHoy.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             lblGananciasHoy.ForeColor = Color.FromArgb(39, 174, 96);
-            lblGananciasHoy.Location = new Point(250, 17);
+            lblGananciasHoy.Location = new Point(250, 15);
             lblGananciasHoy.Name = "lblGananciasHoy";
             lblGananciasHoy.Size = new Size(131, 21);
             lblGananciasHoy.TabIndex = 2;
@@ -272,7 +279,7 @@
             lblTotalClientes.AutoSize = true;
             lblTotalClientes.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             lblTotalClientes.ForeColor = Color.FromArgb(52, 73, 94);
-            lblTotalClientes.Location = new Point(20, 51);
+            lblTotalClientes.Location = new Point(20, 45);
             lblTotalClientes.Name = "lblTotalClientes";
             lblTotalClientes.Size = new Size(130, 21);
             lblTotalClientes.TabIndex = 1;
@@ -283,7 +290,7 @@
             lblTotalPrestamos.AutoSize = true;
             lblTotalPrestamos.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             lblTotalPrestamos.ForeColor = Color.FromArgb(52, 73, 94);
-            lblTotalPrestamos.Location = new Point(20, 17);
+            lblTotalPrestamos.Location = new Point(20, 15);
             lblTotalPrestamos.Name = "lblTotalPrestamos";
             lblTotalPrestamos.Size = new Size(148, 21);
             lblTotalPrestamos.TabIndex = 0;
@@ -291,10 +298,10 @@
             // 
             // MainMenu
             // 
-            AutoScaleDimensions = new SizeF(7F, 17F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(236, 240, 241);
-            ClientSize = new Size(1200, 680);
+            ClientSize = new Size(1200, 600);
             Controls.Add(panelStats);
             Controls.Add(panelChart);
             Controls.Add(panelNavigation);
@@ -303,7 +310,7 @@
             MaximizeBox = false;
             Name = "MainMenu";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Sistema de Préstamos - Panel Principal";
+            Text = "Panel Principal";
             panelHeader.ResumeLayout(false);
             panelHeader.PerformLayout();
             panelNavigation.ResumeLayout(false);

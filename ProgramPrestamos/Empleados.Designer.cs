@@ -142,7 +142,7 @@
             panelHeader.Dock = DockStyle.Top;
             panelHeader.Location = new Point(0, 0);
             panelHeader.Name = "panelHeader";
-            panelHeader.Size = new Size(1364, 91);
+            panelHeader.Size = new Size(1364, 80);
             panelHeader.TabIndex = 0;
             // 
             // lblSubtitle
@@ -150,7 +150,7 @@
             lblSubtitle.AutoSize = true;
             lblSubtitle.Font = new Font("Segoe UI", 10F);
             lblSubtitle.ForeColor = Color.FromArgb(189, 195, 199);
-            lblSubtitle.Location = new Point(20, 57);
+            lblSubtitle.Location = new Point(20, 50);
             lblSubtitle.Name = "lblSubtitle";
             lblSubtitle.Size = new Size(303, 19);
             lblSubtitle.TabIndex = 1;
@@ -161,7 +161,7 @@
             lblTitle.AutoSize = true;
             lblTitle.Font = new Font("Segoe UI", 18F, FontStyle.Bold);
             lblTitle.ForeColor = Color.White;
-            lblTitle.Location = new Point(20, 17);
+            lblTitle.Location = new Point(20, 15);
             lblTitle.Name = "lblTitle";
             lblTitle.Size = new Size(174, 32);
             lblTitle.TabIndex = 0;
@@ -174,9 +174,9 @@
             btnVolver.FlatStyle = FlatStyle.Flat;
             btnVolver.Font = new Font("Segoe UI", 10F);
             btnVolver.ForeColor = Color.White;
-            btnVolver.Location = new Point(1250, 25);
+            btnVolver.Location = new Point(1250, 22);
             btnVolver.Name = "btnVolver";
-            btnVolver.Size = new Size(120, 40);
+            btnVolver.Size = new Size(120, 35);
             btnVolver.TabIndex = 2;
             btnVolver.Text = "← Volver";
             btnVolver.UseVisualStyleBackColor = false;
@@ -187,10 +187,10 @@
             panelMain.Controls.Add(panelEmpleadosList);
             panelMain.Controls.Add(panelEmpleadoDetails);
             panelMain.Dock = DockStyle.Fill;
-            panelMain.Location = new Point(0, 91);
+            panelMain.Location = new Point(0, 80);
             panelMain.Name = "panelMain";
-            panelMain.Padding = new Padding(20);
-            panelMain.Size = new Size(1364, 658);
+            panelMain.Padding = new Padding(20, 18, 20, 18);
+            panelMain.Size = new Size(1364, 581);
             panelMain.TabIndex = 1;
             // 
             // panelEmpleadosList
@@ -200,10 +200,10 @@
             panelEmpleadosList.Controls.Add(btnAgregarEmpleado);
             panelEmpleadosList.Controls.Add(lblEmpleadosTitle);
             panelEmpleadosList.Controls.Add(listViewEmpleados);
-            panelEmpleadosList.Location = new Point(20, 20);
+            panelEmpleadosList.Location = new Point(20, 18);
             panelEmpleadosList.Name = "panelEmpleadosList";
-            panelEmpleadosList.Padding = new Padding(15);
-            panelEmpleadosList.Size = new Size(400, 649);
+            panelEmpleadosList.Padding = new Padding(15, 13, 15, 13);
+            panelEmpleadosList.Size = new Size(400, 573);
             panelEmpleadosList.TabIndex = 0;
             // 
             // panelBusqueda
@@ -211,17 +211,17 @@
             panelBusqueda.BackColor = Color.FromArgb(236, 240, 241);
             panelBusqueda.Controls.Add(txtBusqueda);
             panelBusqueda.Controls.Add(lblBusqueda);
-            panelBusqueda.Location = new Point(15, 95);
+            panelBusqueda.Location = new Point(15, 84);
             panelBusqueda.Name = "panelBusqueda";
-            panelBusqueda.Padding = new Padding(10);
-            panelBusqueda.Size = new Size(370, 60);
+            panelBusqueda.Padding = new Padding(10, 9, 10, 9);
+            panelBusqueda.Size = new Size(370, 53);
             panelBusqueda.TabIndex = 3;
             // 
             // txtBusqueda
             // 
             txtBusqueda.BorderStyle = BorderStyle.FixedSingle;
             txtBusqueda.Font = new Font("Segoe UI", 10F);
-            txtBusqueda.Location = new Point(10, 30);
+            txtBusqueda.Location = new Point(10, 26);
             txtBusqueda.Name = "txtBusqueda";
             txtBusqueda.PlaceholderText = "Ingrese nombre o DNI...";
             txtBusqueda.Size = new Size(350, 25);
@@ -232,7 +232,7 @@
             lblBusqueda.AutoSize = true;
             lblBusqueda.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             lblBusqueda.ForeColor = Color.FromArgb(52, 73, 94);
-            lblBusqueda.Location = new Point(10, 10);
+            lblBusqueda.Location = new Point(10, 9);
             lblBusqueda.Name = "lblBusqueda";
             lblBusqueda.Size = new Size(207, 19);
             lblBusqueda.TabIndex = 0;
@@ -245,9 +245,9 @@
             btnAgregarEmpleado.FlatStyle = FlatStyle.Flat;
             btnAgregarEmpleado.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnAgregarEmpleado.ForeColor = Color.White;
-            btnAgregarEmpleado.Location = new Point(15, 50);
+            btnAgregarEmpleado.Location = new Point(15, 44);
             btnAgregarEmpleado.Name = "btnAgregarEmpleado";
-            btnAgregarEmpleado.Size = new Size(180, 35);
+            btnAgregarEmpleado.Size = new Size(180, 31);
             btnAgregarEmpleado.TabIndex = 2;
             btnAgregarEmpleado.Text = "➕ Agregar Nuevo Empleado";
             btnAgregarEmpleado.UseVisualStyleBackColor = false;
@@ -257,7 +257,7 @@
             lblEmpleadosTitle.AutoSize = true;
             lblEmpleadosTitle.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
             lblEmpleadosTitle.ForeColor = Color.FromArgb(41, 53, 65);
-            lblEmpleadosTitle.Location = new Point(15, 15);
+            lblEmpleadosTitle.Location = new Point(15, 13);
             lblEmpleadosTitle.Name = "lblEmpleadosTitle";
             lblEmpleadosTitle.Size = new Size(180, 25);
             lblEmpleadosTitle.TabIndex = 0;
@@ -271,10 +271,10 @@
             listViewEmpleados.FullRowSelect = true;
             listViewEmpleados.GridLines = true;
             listViewEmpleados.HeaderStyle = ColumnHeaderStyle.Nonclickable;
-            listViewEmpleados.Location = new Point(15, 170);
+            listViewEmpleados.Location = new Point(15, 150);
             listViewEmpleados.MultiSelect = false;
             listViewEmpleados.Name = "listViewEmpleados";
-            listViewEmpleados.Size = new Size(370, 464);
+            listViewEmpleados.Size = new Size(370, 409);
             listViewEmpleados.TabIndex = 1;
             listViewEmpleados.UseCompatibleStateImageBehavior = false;
             listViewEmpleados.View = View.Details;
@@ -284,10 +284,10 @@
             panelEmpleadoDetails.BackColor = Color.White;
             panelEmpleadoDetails.Controls.Add(panelDetailsHeader);
             panelEmpleadoDetails.Controls.Add(tabControlDetails);
-            panelEmpleadoDetails.Location = new Point(440, 20);
+            panelEmpleadoDetails.Location = new Point(440, 18);
             panelEmpleadoDetails.Name = "panelEmpleadoDetails";
-            panelEmpleadoDetails.Padding = new Padding(15);
-            panelEmpleadoDetails.Size = new Size(940, 649);
+            panelEmpleadoDetails.Padding = new Padding(15, 13, 15, 13);
+            panelEmpleadoDetails.Size = new Size(940, 573);
             panelEmpleadoDetails.TabIndex = 1;
             // 
             // panelDetailsHeader
@@ -296,10 +296,10 @@
             panelDetailsHeader.Controls.Add(lblEmpleadoNombre);
             panelDetailsHeader.Controls.Add(lblEmpleadoInfo);
             panelDetailsHeader.Dock = DockStyle.Top;
-            panelDetailsHeader.Location = new Point(15, 15);
+            panelDetailsHeader.Location = new Point(15, 13);
             panelDetailsHeader.Name = "panelDetailsHeader";
-            panelDetailsHeader.Padding = new Padding(15);
-            panelDetailsHeader.Size = new Size(910, 80);
+            panelDetailsHeader.Padding = new Padding(15, 13, 15, 13);
+            panelDetailsHeader.Size = new Size(910, 71);
             panelDetailsHeader.TabIndex = 0;
             // 
             // lblEmpleadoNombre
@@ -307,7 +307,7 @@
             lblEmpleadoNombre.AutoSize = true;
             lblEmpleadoNombre.Font = new Font("Segoe UI", 16F, FontStyle.Bold);
             lblEmpleadoNombre.ForeColor = Color.White;
-            lblEmpleadoNombre.Location = new Point(15, 15);
+            lblEmpleadoNombre.Location = new Point(15, 13);
             lblEmpleadoNombre.Name = "lblEmpleadoNombre";
             lblEmpleadoNombre.Size = new Size(262, 30);
             lblEmpleadoNombre.TabIndex = 0;
@@ -318,7 +318,7 @@
             lblEmpleadoInfo.AutoSize = true;
             lblEmpleadoInfo.Font = new Font("Segoe UI", 10F);
             lblEmpleadoInfo.ForeColor = Color.FromArgb(189, 195, 199);
-            lblEmpleadoInfo.Location = new Point(15, 50);
+            lblEmpleadoInfo.Location = new Point(15, 44);
             lblEmpleadoInfo.Name = "lblEmpleadoInfo";
             lblEmpleadoInfo.Size = new Size(197, 19);
             lblEmpleadoInfo.TabIndex = 1;
@@ -331,10 +331,10 @@
             tabControlDetails.Controls.Add(tabPageCajaPersonal);
             tabControlDetails.Controls.Add(tabPageSemanal);
             tabControlDetails.Font = new Font("Segoe UI", 10F);
-            tabControlDetails.Location = new Point(15, 105);
+            tabControlDetails.Location = new Point(15, 93);
             tabControlDetails.Name = "tabControlDetails";
             tabControlDetails.SelectedIndex = 0;
-            tabControlDetails.Size = new Size(910, 529);
+            tabControlDetails.Size = new Size(910, 467);
             tabControlDetails.TabIndex = 1;
             // 
             // tabPageInfoPersonal
@@ -343,8 +343,8 @@
             tabPageInfoPersonal.Controls.Add(panelInfoPersonal);
             tabPageInfoPersonal.Location = new Point(4, 26);
             tabPageInfoPersonal.Name = "tabPageInfoPersonal";
-            tabPageInfoPersonal.Padding = new Padding(10);
-            tabPageInfoPersonal.Size = new Size(902, 499);
+            tabPageInfoPersonal.Padding = new Padding(10, 9, 10, 9);
+            tabPageInfoPersonal.Size = new Size(902, 437);
             tabPageInfoPersonal.TabIndex = 0;
             tabPageInfoPersonal.Text = "👤 Información Personal";
             // 
@@ -354,9 +354,9 @@
             panelInfoPersonal.Controls.Add(panelPrestamosActivos);
             panelInfoPersonal.Controls.Add(panelRegistrarPago);
             panelInfoPersonal.Dock = DockStyle.Fill;
-            panelInfoPersonal.Location = new Point(10, 10);
+            panelInfoPersonal.Location = new Point(10, 9);
             panelInfoPersonal.Name = "panelInfoPersonal";
-            panelInfoPersonal.Size = new Size(882, 479);
+            panelInfoPersonal.Size = new Size(882, 419);
             panelInfoPersonal.TabIndex = 0;
             // 
             // panelDatosBasicos
@@ -373,8 +373,8 @@
             panelDatosBasicos.Controls.Add(lblDatosBasicos);
             panelDatosBasicos.Location = new Point(0, 0);
             panelDatosBasicos.Name = "panelDatosBasicos";
-            panelDatosBasicos.Padding = new Padding(15);
-            panelDatosBasicos.Size = new Size(882, 142);
+            panelDatosBasicos.Padding = new Padding(15, 13, 15, 13);
+            panelDatosBasicos.Size = new Size(882, 125);
             panelDatosBasicos.TabIndex = 0;
             // 
             // lblDireccionValor
@@ -382,7 +382,7 @@
             lblDireccionValor.AutoSize = true;
             lblDireccionValor.Font = new Font("Segoe UI", 10F);
             lblDireccionValor.ForeColor = Color.FromArgb(44, 62, 80);
-            lblDireccionValor.Location = new Point(15, 110);
+            lblDireccionValor.Location = new Point(15, 97);
             lblDireccionValor.Name = "lblDireccionValor";
             lblDireccionValor.Size = new Size(15, 19);
             lblDireccionValor.TabIndex = 8;
@@ -393,7 +393,7 @@
             lblDireccion.AutoSize = true;
             lblDireccion.Font = new Font("Segoe UI", 10F);
             lblDireccion.ForeColor = Color.FromArgb(52, 73, 94);
-            lblDireccion.Location = new Point(15, 90);
+            lblDireccion.Location = new Point(15, 79);
             lblDireccion.Name = "lblDireccion";
             lblDireccion.Size = new Size(68, 19);
             lblDireccion.TabIndex = 7;
@@ -404,7 +404,7 @@
             lblTelefonoValor.AutoSize = true;
             lblTelefonoValor.Font = new Font("Segoe UI", 10F);
             lblTelefonoValor.ForeColor = Color.FromArgb(44, 62, 80);
-            lblTelefonoValor.Location = new Point(600, 70);
+            lblTelefonoValor.Location = new Point(600, 62);
             lblTelefonoValor.Name = "lblTelefonoValor";
             lblTelefonoValor.Size = new Size(15, 19);
             lblTelefonoValor.TabIndex = 6;
@@ -415,7 +415,7 @@
             lblTelefono.AutoSize = true;
             lblTelefono.Font = new Font("Segoe UI", 10F);
             lblTelefono.ForeColor = Color.FromArgb(52, 73, 94);
-            lblTelefono.Location = new Point(600, 50);
+            lblTelefono.Location = new Point(600, 44);
             lblTelefono.Name = "lblTelefono";
             lblTelefono.Size = new Size(63, 19);
             lblTelefono.TabIndex = 5;
@@ -426,7 +426,7 @@
             lblDNIValor.AutoSize = true;
             lblDNIValor.Font = new Font("Segoe UI", 10F);
             lblDNIValor.ForeColor = Color.FromArgb(44, 62, 80);
-            lblDNIValor.Location = new Point(400, 70);
+            lblDNIValor.Location = new Point(400, 62);
             lblDNIValor.Name = "lblDNIValor";
             lblDNIValor.Size = new Size(15, 19);
             lblDNIValor.TabIndex = 4;
@@ -437,7 +437,7 @@
             lblDNI.AutoSize = true;
             lblDNI.Font = new Font("Segoe UI", 10F);
             lblDNI.ForeColor = Color.FromArgb(52, 73, 94);
-            lblDNI.Location = new Point(400, 50);
+            lblDNI.Location = new Point(400, 44);
             lblDNI.Name = "lblDNI";
             lblDNI.Size = new Size(36, 19);
             lblDNI.TabIndex = 3;
@@ -448,7 +448,7 @@
             lblNombreCompletoValor.AutoSize = true;
             lblNombreCompletoValor.Font = new Font("Segoe UI", 10F);
             lblNombreCompletoValor.ForeColor = Color.FromArgb(44, 62, 80);
-            lblNombreCompletoValor.Location = new Point(15, 70);
+            lblNombreCompletoValor.Location = new Point(15, 62);
             lblNombreCompletoValor.Name = "lblNombreCompletoValor";
             lblNombreCompletoValor.Size = new Size(15, 19);
             lblNombreCompletoValor.TabIndex = 2;
@@ -459,7 +459,7 @@
             lblNombreCompleto.AutoSize = true;
             lblNombreCompleto.Font = new Font("Segoe UI", 10F);
             lblNombreCompleto.ForeColor = Color.FromArgb(52, 73, 94);
-            lblNombreCompleto.Location = new Point(15, 50);
+            lblNombreCompleto.Location = new Point(15, 44);
             lblNombreCompleto.Name = "lblNombreCompleto";
             lblNombreCompleto.Size = new Size(126, 19);
             lblNombreCompleto.TabIndex = 1;
@@ -470,7 +470,7 @@
             lblDatosBasicos.AutoSize = true;
             lblDatosBasicos.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             lblDatosBasicos.ForeColor = Color.FromArgb(52, 73, 94);
-            lblDatosBasicos.Location = new Point(15, 15);
+            lblDatosBasicos.Location = new Point(15, 13);
             lblDatosBasicos.Name = "lblDatosBasicos";
             lblDatosBasicos.Size = new Size(114, 21);
             lblDatosBasicos.TabIndex = 0;
@@ -481,10 +481,10 @@
             panelPrestamosActivos.BackColor = Color.FromArgb(236, 240, 241);
             panelPrestamosActivos.Controls.Add(listViewPrestamosActivos);
             panelPrestamosActivos.Controls.Add(lblPrestamosActivosInfo);
-            panelPrestamosActivos.Location = new Point(0, 148);
+            panelPrestamosActivos.Location = new Point(0, 131);
             panelPrestamosActivos.Name = "panelPrestamosActivos";
-            panelPrestamosActivos.Padding = new Padding(15);
-            panelPrestamosActivos.Size = new Size(882, 162);
+            panelPrestamosActivos.Padding = new Padding(15, 13, 15, 13);
+            panelPrestamosActivos.Size = new Size(882, 143);
             panelPrestamosActivos.TabIndex = 1;
             // 
             // listViewPrestamosActivos
@@ -495,9 +495,9 @@
             listViewPrestamosActivos.FullRowSelect = true;
             listViewPrestamosActivos.GridLines = true;
             listViewPrestamosActivos.HeaderStyle = ColumnHeaderStyle.Nonclickable;
-            listViewPrestamosActivos.Location = new Point(15, 45);
+            listViewPrestamosActivos.Location = new Point(15, 40);
             listViewPrestamosActivos.Name = "listViewPrestamosActivos";
-            listViewPrestamosActivos.Size = new Size(852, 120);
+            listViewPrestamosActivos.Size = new Size(852, 106);
             listViewPrestamosActivos.TabIndex = 1;
             listViewPrestamosActivos.UseCompatibleStateImageBehavior = false;
             listViewPrestamosActivos.View = View.Details;
@@ -507,7 +507,7 @@
             lblPrestamosActivosInfo.AutoSize = true;
             lblPrestamosActivosInfo.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             lblPrestamosActivosInfo.ForeColor = Color.FromArgb(52, 73, 94);
-            lblPrestamosActivosInfo.Location = new Point(15, 15);
+            lblPrestamosActivosInfo.Location = new Point(15, 13);
             lblPrestamosActivosInfo.Name = "lblPrestamosActivosInfo";
             lblPrestamosActivosInfo.Size = new Size(149, 21);
             lblPrestamosActivosInfo.TabIndex = 0;
@@ -526,10 +526,10 @@
             panelRegistrarPago.Controls.Add(cmbPrestamoSeleccion);
             panelRegistrarPago.Controls.Add(lblPrestamoSeleccion);
             panelRegistrarPago.Controls.Add(lblRegistrarPagoInfo);
-            panelRegistrarPago.Location = new Point(0, 320);
+            panelRegistrarPago.Location = new Point(0, 282);
             panelRegistrarPago.Name = "panelRegistrarPago";
-            panelRegistrarPago.Padding = new Padding(15);
-            panelRegistrarPago.Size = new Size(882, 157);
+            panelRegistrarPago.Padding = new Padding(15, 13, 15, 13);
+            panelRegistrarPago.Size = new Size(882, 139);
             panelRegistrarPago.TabIndex = 2;
             // 
             // btnRegistrarPagoInfo
@@ -539,9 +539,9 @@
             btnRegistrarPagoInfo.FlatStyle = FlatStyle.Flat;
             btnRegistrarPagoInfo.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnRegistrarPagoInfo.ForeColor = Color.White;
-            btnRegistrarPagoInfo.Location = new Point(15, 110);
+            btnRegistrarPagoInfo.Location = new Point(15, 97);
             btnRegistrarPagoInfo.Name = "btnRegistrarPagoInfo";
-            btnRegistrarPagoInfo.Size = new Size(150, 35);
+            btnRegistrarPagoInfo.Size = new Size(150, 31);
             btnRegistrarPagoInfo.TabIndex = 9;
             btnRegistrarPagoInfo.Text = "💰 Registrar Pago";
             btnRegistrarPagoInfo.UseVisualStyleBackColor = false;
@@ -550,7 +550,7 @@
             // 
             txtNumeroCuota.BorderStyle = BorderStyle.FixedSingle;
             txtNumeroCuota.Font = new Font("Segoe UI", 10F);
-            txtNumeroCuota.Location = new Point(700, 70);
+            txtNumeroCuota.Location = new Point(700, 62);
             txtNumeroCuota.Name = "txtNumeroCuota";
             txtNumeroCuota.Size = new Size(100, 25);
             txtNumeroCuota.TabIndex = 8;
@@ -560,7 +560,7 @@
             lblNumeroCuota.AutoSize = true;
             lblNumeroCuota.Font = new Font("Segoe UI", 10F);
             lblNumeroCuota.ForeColor = Color.FromArgb(52, 73, 94);
-            lblNumeroCuota.Location = new Point(700, 50);
+            lblNumeroCuota.Location = new Point(700, 44);
             lblNumeroCuota.Name = "lblNumeroCuota";
             lblNumeroCuota.Size = new Size(79, 19);
             lblNumeroCuota.TabIndex = 7;
@@ -570,7 +570,7 @@
             // 
             dateTimePickerFechaPago.Font = new Font("Segoe UI", 10F);
             dateTimePickerFechaPago.Format = DateTimePickerFormat.Short;
-            dateTimePickerFechaPago.Location = new Point(550, 70);
+            dateTimePickerFechaPago.Location = new Point(550, 62);
             dateTimePickerFechaPago.Name = "dateTimePickerFechaPago";
             dateTimePickerFechaPago.Size = new Size(120, 25);
             dateTimePickerFechaPago.TabIndex = 6;
@@ -580,7 +580,7 @@
             lblFechaPago.AutoSize = true;
             lblFechaPago.Font = new Font("Segoe UI", 10F);
             lblFechaPago.ForeColor = Color.FromArgb(52, 73, 94);
-            lblFechaPago.Location = new Point(550, 50);
+            lblFechaPago.Location = new Point(550, 44);
             lblFechaPago.Name = "lblFechaPago";
             lblFechaPago.Size = new Size(47, 19);
             lblFechaPago.TabIndex = 5;
@@ -590,7 +590,7 @@
             // 
             txtMontoPagoInfo.BorderStyle = BorderStyle.FixedSingle;
             txtMontoPagoInfo.Font = new Font("Segoe UI", 10F);
-            txtMontoPagoInfo.Location = new Point(420, 70);
+            txtMontoPagoInfo.Location = new Point(420, 62);
             txtMontoPagoInfo.Name = "txtMontoPagoInfo";
             txtMontoPagoInfo.Size = new Size(100, 25);
             txtMontoPagoInfo.TabIndex = 4;
@@ -600,7 +600,7 @@
             lblMontoPagoInfo.AutoSize = true;
             lblMontoPagoInfo.Font = new Font("Segoe UI", 10F);
             lblMontoPagoInfo.ForeColor = Color.FromArgb(52, 73, 94);
-            lblMontoPagoInfo.Location = new Point(420, 50);
+            lblMontoPagoInfo.Location = new Point(420, 44);
             lblMontoPagoInfo.Name = "lblMontoPagoInfo";
             lblMontoPagoInfo.Size = new Size(54, 19);
             lblMontoPagoInfo.TabIndex = 3;
@@ -611,7 +611,7 @@
             cmbPrestamoSeleccion.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbPrestamoSeleccion.Font = new Font("Segoe UI", 10F);
             cmbPrestamoSeleccion.FormattingEnabled = true;
-            cmbPrestamoSeleccion.Location = new Point(15, 70);
+            cmbPrestamoSeleccion.Location = new Point(15, 62);
             cmbPrestamoSeleccion.Name = "cmbPrestamoSeleccion";
             cmbPrestamoSeleccion.Size = new Size(380, 25);
             cmbPrestamoSeleccion.TabIndex = 2;
@@ -621,7 +621,7 @@
             lblPrestamoSeleccion.AutoSize = true;
             lblPrestamoSeleccion.Font = new Font("Segoe UI", 10F);
             lblPrestamoSeleccion.ForeColor = Color.FromArgb(52, 73, 94);
-            lblPrestamoSeleccion.Location = new Point(15, 50);
+            lblPrestamoSeleccion.Location = new Point(15, 44);
             lblPrestamoSeleccion.Name = "lblPrestamoSeleccion";
             lblPrestamoSeleccion.Size = new Size(141, 19);
             lblPrestamoSeleccion.TabIndex = 1;
@@ -632,7 +632,7 @@
             lblRegistrarPagoInfo.AutoSize = true;
             lblRegistrarPagoInfo.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             lblRegistrarPagoInfo.ForeColor = Color.FromArgb(52, 73, 94);
-            lblRegistrarPagoInfo.Location = new Point(15, 15);
+            lblRegistrarPagoInfo.Location = new Point(15, 13);
             lblRegistrarPagoInfo.Name = "lblRegistrarPagoInfo";
             lblRegistrarPagoInfo.Size = new Size(128, 21);
             lblRegistrarPagoInfo.TabIndex = 0;
@@ -644,8 +644,8 @@
             tabPageComisiones.Controls.Add(panelComisiones);
             tabPageComisiones.Location = new Point(4, 26);
             tabPageComisiones.Name = "tabPageComisiones";
-            tabPageComisiones.Padding = new Padding(10);
-            tabPageComisiones.Size = new Size(902, 499);
+            tabPageComisiones.Padding = new Padding(10, 9, 10, 9);
+            tabPageComisiones.Size = new Size(902, 437);
             tabPageComisiones.TabIndex = 1;
             tabPageComisiones.Text = "💼 Comisiones y Pagos";
             // 
@@ -653,9 +653,9 @@
             // 
             panelComisiones.Controls.Add(panelCalculoComisiones);
             panelComisiones.Dock = DockStyle.Fill;
-            panelComisiones.Location = new Point(10, 10);
+            panelComisiones.Location = new Point(10, 9);
             panelComisiones.Name = "panelComisiones";
-            panelComisiones.Size = new Size(882, 479);
+            panelComisiones.Size = new Size(882, 419);
             panelComisiones.TabIndex = 0;
             // 
             // panelCalculoComisiones
@@ -672,8 +672,8 @@
             panelCalculoComisiones.Dock = DockStyle.Fill;
             panelCalculoComisiones.Location = new Point(0, 0);
             panelCalculoComisiones.Name = "panelCalculoComisiones";
-            panelCalculoComisiones.Padding = new Padding(15);
-            panelCalculoComisiones.Size = new Size(882, 479);
+            panelCalculoComisiones.Padding = new Padding(15, 13, 15, 13);
+            panelCalculoComisiones.Size = new Size(882, 419);
             panelCalculoComisiones.TabIndex = 0;
             // 
             // btnGenerarPDFDetallado
@@ -683,9 +683,9 @@
             btnGenerarPDFDetallado.FlatStyle = FlatStyle.Flat;
             btnGenerarPDFDetallado.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnGenerarPDFDetallado.ForeColor = Color.White;
-            btnGenerarPDFDetallado.Location = new Point(400, 420);
+            btnGenerarPDFDetallado.Location = new Point(400, 371);
             btnGenerarPDFDetallado.Name = "btnGenerarPDFDetallado";
-            btnGenerarPDFDetallado.Size = new Size(180, 40);
+            btnGenerarPDFDetallado.Size = new Size(180, 35);
             btnGenerarPDFDetallado.TabIndex = 7;
             btnGenerarPDFDetallado.Text = "📄 Generar PDF Detallado";
             btnGenerarPDFDetallado.UseVisualStyleBackColor = false;
@@ -697,9 +697,9 @@
             btnMarcarComoPagado.FlatStyle = FlatStyle.Flat;
             btnMarcarComoPagado.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnMarcarComoPagado.ForeColor = Color.White;
-            btnMarcarComoPagado.Location = new Point(200, 420);
+            btnMarcarComoPagado.Location = new Point(200, 371);
             btnMarcarComoPagado.Name = "btnMarcarComoPagado";
-            btnMarcarComoPagado.Size = new Size(180, 40);
+            btnMarcarComoPagado.Size = new Size(180, 35);
             btnMarcarComoPagado.TabIndex = 6;
             btnMarcarComoPagado.Text = "✅ Marcar como Pagado";
             btnMarcarComoPagado.UseVisualStyleBackColor = false;
@@ -711,9 +711,9 @@
             btnCalcularPago.FlatStyle = FlatStyle.Flat;
             btnCalcularPago.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnCalcularPago.ForeColor = Color.White;
-            btnCalcularPago.Location = new Point(15, 420);
+            btnCalcularPago.Location = new Point(15, 371);
             btnCalcularPago.Name = "btnCalcularPago";
-            btnCalcularPago.Size = new Size(150, 40);
+            btnCalcularPago.Size = new Size(150, 35);
             btnCalcularPago.TabIndex = 5;
             btnCalcularPago.Text = "\U0001f9ee Calcular Pago";
             btnCalcularPago.UseVisualStyleBackColor = false;
@@ -723,7 +723,7 @@
             lblTotalPagar.AutoSize = true;
             lblTotalPagar.Font = new Font("Segoe UI", 16F, FontStyle.Bold);
             lblTotalPagar.ForeColor = Color.FromArgb(39, 174, 96);
-            lblTotalPagar.Location = new Point(15, 370);
+            lblTotalPagar.Location = new Point(15, 326);
             lblTotalPagar.Name = "lblTotalPagar";
             lblTotalPagar.Size = new Size(351, 30);
             lblTotalPagar.TabIndex = 4;
@@ -735,10 +735,10 @@
             panelComisionProductos.Controls.Add(lblComisionProductos);
             panelComisionProductos.Controls.Add(lblTotalProductos);
             panelComisionProductos.Controls.Add(lblComisionProductosTitle);
-            panelComisionProductos.Location = new Point(450, 180);
+            panelComisionProductos.Location = new Point(450, 159);
             panelComisionProductos.Name = "panelComisionProductos";
-            panelComisionProductos.Padding = new Padding(15);
-            panelComisionProductos.Size = new Size(417, 120);
+            panelComisionProductos.Padding = new Padding(15, 13, 15, 13);
+            panelComisionProductos.Size = new Size(417, 106);
             panelComisionProductos.TabIndex = 3;
             // 
             // lblComisionProductos
@@ -746,7 +746,7 @@
             lblComisionProductos.AutoSize = true;
             lblComisionProductos.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
             lblComisionProductos.ForeColor = Color.FromArgb(155, 89, 182);
-            lblComisionProductos.Location = new Point(15, 80);
+            lblComisionProductos.Location = new Point(15, 71);
             lblComisionProductos.Name = "lblComisionProductos";
             lblComisionProductos.Size = new Size(211, 25);
             lblComisionProductos.TabIndex = 2;
@@ -757,7 +757,7 @@
             lblTotalProductos.AutoSize = true;
             lblTotalProductos.Font = new Font("Segoe UI", 12F);
             lblTotalProductos.ForeColor = Color.FromArgb(52, 73, 94);
-            lblTotalProductos.Location = new Point(15, 50);
+            lblTotalProductos.Location = new Point(15, 44);
             lblTotalProductos.Name = "lblTotalProductos";
             lblTotalProductos.Size = new Size(145, 21);
             lblTotalProductos.TabIndex = 1;
@@ -768,7 +768,7 @@
             lblComisionProductosTitle.AutoSize = true;
             lblComisionProductosTitle.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             lblComisionProductosTitle.ForeColor = Color.FromArgb(52, 73, 94);
-            lblComisionProductosTitle.Location = new Point(15, 15);
+            lblComisionProductosTitle.Location = new Point(15, 13);
             lblComisionProductosTitle.Name = "lblComisionProductosTitle";
             lblComisionProductosTitle.Size = new Size(202, 21);
             lblComisionProductosTitle.TabIndex = 0;
@@ -780,10 +780,10 @@
             panelComisionEfectivo.Controls.Add(lblComisionEfectivo);
             panelComisionEfectivo.Controls.Add(lblTotalEfectivo);
             panelComisionEfectivo.Controls.Add(lblComisionEfectivoTitle);
-            panelComisionEfectivo.Location = new Point(15, 180);
+            panelComisionEfectivo.Location = new Point(15, 159);
             panelComisionEfectivo.Name = "panelComisionEfectivo";
-            panelComisionEfectivo.Padding = new Padding(15);
-            panelComisionEfectivo.Size = new Size(417, 120);
+            panelComisionEfectivo.Padding = new Padding(15, 13, 15, 13);
+            panelComisionEfectivo.Size = new Size(417, 106);
             panelComisionEfectivo.TabIndex = 2;
             // 
             // lblComisionEfectivo
@@ -791,7 +791,7 @@
             lblComisionEfectivo.AutoSize = true;
             lblComisionEfectivo.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
             lblComisionEfectivo.ForeColor = Color.FromArgb(39, 174, 96);
-            lblComisionEfectivo.Location = new Point(15, 80);
+            lblComisionEfectivo.Location = new Point(15, 71);
             lblComisionEfectivo.Name = "lblComisionEfectivo";
             lblComisionEfectivo.Size = new Size(211, 25);
             lblComisionEfectivo.TabIndex = 2;
@@ -802,7 +802,7 @@
             lblTotalEfectivo.AutoSize = true;
             lblTotalEfectivo.Font = new Font("Segoe UI", 12F);
             lblTotalEfectivo.ForeColor = Color.FromArgb(52, 73, 94);
-            lblTotalEfectivo.Location = new Point(15, 50);
+            lblTotalEfectivo.Location = new Point(15, 44);
             lblTotalEfectivo.Name = "lblTotalEfectivo";
             lblTotalEfectivo.Size = new Size(145, 21);
             lblTotalEfectivo.TabIndex = 1;
@@ -813,7 +813,7 @@
             lblComisionEfectivoTitle.AutoSize = true;
             lblComisionEfectivoTitle.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             lblComisionEfectivoTitle.ForeColor = Color.FromArgb(52, 73, 94);
-            lblComisionEfectivoTitle.Location = new Point(15, 15);
+            lblComisionEfectivoTitle.Location = new Point(15, 13);
             lblComisionEfectivoTitle.Name = "lblComisionEfectivoTitle";
             lblComisionEfectivoTitle.Size = new Size(162, 21);
             lblComisionEfectivoTitle.TabIndex = 0;
@@ -827,17 +827,17 @@
             panelPeriodo.Controls.Add(dateTimePickerDesde);
             panelPeriodo.Controls.Add(lblDesde);
             panelPeriodo.Controls.Add(lblPeriodo);
-            panelPeriodo.Location = new Point(15, 80);
+            panelPeriodo.Location = new Point(15, 71);
             panelPeriodo.Name = "panelPeriodo";
-            panelPeriodo.Padding = new Padding(15);
-            panelPeriodo.Size = new Size(852, 80);
+            panelPeriodo.Padding = new Padding(15, 13, 15, 13);
+            panelPeriodo.Size = new Size(852, 71);
             panelPeriodo.TabIndex = 1;
             // 
             // dateTimePickerHasta
             // 
             dateTimePickerHasta.Font = new Font("Segoe UI", 10F);
             dateTimePickerHasta.Format = DateTimePickerFormat.Short;
-            dateTimePickerHasta.Location = new Point(350, 40);
+            dateTimePickerHasta.Location = new Point(350, 35);
             dateTimePickerHasta.Name = "dateTimePickerHasta";
             dateTimePickerHasta.Size = new Size(120, 25);
             dateTimePickerHasta.TabIndex = 4;
@@ -847,7 +847,7 @@
             lblHasta.AutoSize = true;
             lblHasta.Font = new Font("Segoe UI", 10F);
             lblHasta.ForeColor = Color.FromArgb(52, 73, 94);
-            lblHasta.Location = new Point(300, 43);
+            lblHasta.Location = new Point(300, 38);
             lblHasta.Name = "lblHasta";
             lblHasta.Size = new Size(47, 19);
             lblHasta.TabIndex = 3;
@@ -857,7 +857,7 @@
             // 
             dateTimePickerDesde.Font = new Font("Segoe UI", 10F);
             dateTimePickerDesde.Format = DateTimePickerFormat.Short;
-            dateTimePickerDesde.Location = new Point(170, 40);
+            dateTimePickerDesde.Location = new Point(170, 35);
             dateTimePickerDesde.Name = "dateTimePickerDesde";
             dateTimePickerDesde.Size = new Size(120, 25);
             dateTimePickerDesde.TabIndex = 2;
@@ -867,7 +867,7 @@
             lblDesde.AutoSize = true;
             lblDesde.Font = new Font("Segoe UI", 10F);
             lblDesde.ForeColor = Color.FromArgb(52, 73, 94);
-            lblDesde.Location = new Point(120, 43);
+            lblDesde.Location = new Point(120, 38);
             lblDesde.Name = "lblDesde";
             lblDesde.Size = new Size(50, 19);
             lblDesde.TabIndex = 1;
@@ -878,7 +878,7 @@
             lblPeriodo.AutoSize = true;
             lblPeriodo.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             lblPeriodo.ForeColor = Color.FromArgb(52, 73, 94);
-            lblPeriodo.Location = new Point(15, 15);
+            lblPeriodo.Location = new Point(15, 13);
             lblPeriodo.Name = "lblPeriodo";
             lblPeriodo.Size = new Size(159, 21);
             lblPeriodo.TabIndex = 0;
@@ -889,7 +889,7 @@
             lblCalculoComisiones.AutoSize = true;
             lblCalculoComisiones.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
             lblCalculoComisiones.ForeColor = Color.FromArgb(41, 53, 65);
-            lblCalculoComisiones.Location = new Point(15, 15);
+            lblCalculoComisiones.Location = new Point(15, 13);
             lblCalculoComisiones.Name = "lblCalculoComisiones";
             lblCalculoComisiones.Size = new Size(210, 25);
             lblCalculoComisiones.TabIndex = 0;
@@ -901,8 +901,8 @@
             tabPageCajaPersonal.Controls.Add(panelCajaPersonal);
             tabPageCajaPersonal.Location = new Point(4, 26);
             tabPageCajaPersonal.Name = "tabPageCajaPersonal";
-            tabPageCajaPersonal.Padding = new Padding(10);
-            tabPageCajaPersonal.Size = new Size(902, 499);
+            tabPageCajaPersonal.Padding = new Padding(10, 9, 10, 9);
+            tabPageCajaPersonal.Size = new Size(902, 437);
             tabPageCajaPersonal.TabIndex = 2;
             tabPageCajaPersonal.Text = "💰 Caja Personal";
             // 
@@ -912,9 +912,9 @@
             panelCajaPersonal.Controls.Add(panelSaldoActual);
             panelCajaPersonal.Controls.Add(lblCajaPersonalTitle);
             panelCajaPersonal.Dock = DockStyle.Fill;
-            panelCajaPersonal.Location = new Point(10, 10);
+            panelCajaPersonal.Location = new Point(10, 9);
             panelCajaPersonal.Name = "panelCajaPersonal";
-            panelCajaPersonal.Size = new Size(882, 479);
+            panelCajaPersonal.Size = new Size(882, 419);
             panelCajaPersonal.TabIndex = 0;
             // 
             // listViewMovimientosCaja
@@ -925,9 +925,9 @@
             listViewMovimientosCaja.FullRowSelect = true;
             listViewMovimientosCaja.GridLines = true;
             listViewMovimientosCaja.HeaderStyle = ColumnHeaderStyle.Nonclickable;
-            listViewMovimientosCaja.Location = new Point(0, 120);
+            listViewMovimientosCaja.Location = new Point(0, 106);
             listViewMovimientosCaja.Name = "listViewMovimientosCaja";
-            listViewMovimientosCaja.Size = new Size(882, 357);
+            listViewMovimientosCaja.Size = new Size(882, 315);
             listViewMovimientosCaja.TabIndex = 2;
             listViewMovimientosCaja.UseCompatibleStateImageBehavior = false;
             listViewMovimientosCaja.View = View.Details;
@@ -936,10 +936,10 @@
             // 
             panelSaldoActual.BackColor = Color.FromArgb(39, 174, 96);
             panelSaldoActual.Controls.Add(lblSaldoActual);
-            panelSaldoActual.Location = new Point(0, 50);
+            panelSaldoActual.Location = new Point(0, 44);
             panelSaldoActual.Name = "panelSaldoActual";
-            panelSaldoActual.Padding = new Padding(20);
-            panelSaldoActual.Size = new Size(882, 60);
+            panelSaldoActual.Padding = new Padding(20, 18, 20, 18);
+            panelSaldoActual.Size = new Size(882, 53);
             panelSaldoActual.TabIndex = 1;
             // 
             // lblSaldoActual
@@ -947,7 +947,7 @@
             lblSaldoActual.AutoSize = true;
             lblSaldoActual.Font = new Font("Segoe UI", 18F, FontStyle.Bold);
             lblSaldoActual.ForeColor = Color.White;
-            lblSaldoActual.Location = new Point(20, 15);
+            lblSaldoActual.Location = new Point(20, 13);
             lblSaldoActual.Name = "lblSaldoActual";
             lblSaldoActual.Size = new Size(234, 32);
             lblSaldoActual.TabIndex = 0;
@@ -958,7 +958,7 @@
             lblCajaPersonalTitle.AutoSize = true;
             lblCajaPersonalTitle.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
             lblCajaPersonalTitle.ForeColor = Color.FromArgb(41, 53, 65);
-            lblCajaPersonalTitle.Location = new Point(0, 15);
+            lblCajaPersonalTitle.Location = new Point(0, 13);
             lblCajaPersonalTitle.Name = "lblCajaPersonalTitle";
             lblCajaPersonalTitle.Size = new Size(197, 25);
             lblCajaPersonalTitle.TabIndex = 0;
@@ -970,8 +970,8 @@
             tabPageSemanal.Controls.Add(panelSemanal);
             tabPageSemanal.Location = new Point(4, 26);
             tabPageSemanal.Name = "tabPageSemanal";
-            tabPageSemanal.Padding = new Padding(10);
-            tabPageSemanal.Size = new Size(902, 499);
+            tabPageSemanal.Padding = new Padding(10, 9, 10, 9);
+            tabPageSemanal.Size = new Size(902, 437);
             tabPageSemanal.TabIndex = 3;
             tabPageSemanal.Text = "📅 Semanal";
             // 
@@ -982,9 +982,9 @@
             panelSemanal.Controls.Add(listViewCobrosSemana);
             panelSemanal.Controls.Add(lblCobrosSemanaTitle);
             panelSemanal.Dock = DockStyle.Fill;
-            panelSemanal.Location = new Point(10, 10);
+            panelSemanal.Location = new Point(10, 9);
             panelSemanal.Name = "panelSemanal";
-            panelSemanal.Size = new Size(882, 479);
+            panelSemanal.Size = new Size(882, 419);
             panelSemanal.TabIndex = 0;
             // 
             // panelResumenSemanal
@@ -992,10 +992,10 @@
             panelResumenSemanal.BackColor = Color.FromArgb(52, 152, 219);
             panelResumenSemanal.Controls.Add(lblDeberiaRecaudar);
             panelResumenSemanal.Controls.Add(lblTotalRecaudar);
-            panelResumenSemanal.Location = new Point(0, 50);
+            panelResumenSemanal.Location = new Point(0, 44);
             panelResumenSemanal.Name = "panelResumenSemanal";
-            panelResumenSemanal.Padding = new Padding(20);
-            panelResumenSemanal.Size = new Size(882, 80);
+            panelResumenSemanal.Padding = new Padding(20, 18, 20, 18);
+            panelResumenSemanal.Size = new Size(882, 71);
             panelResumenSemanal.TabIndex = 3;
             // 
             // lblDeberiaRecaudar
@@ -1003,7 +1003,7 @@
             lblDeberiaRecaudar.AutoSize = true;
             lblDeberiaRecaudar.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             lblDeberiaRecaudar.ForeColor = Color.White;
-            lblDeberiaRecaudar.Location = new Point(20, 45);
+            lblDeberiaRecaudar.Location = new Point(20, 40);
             lblDeberiaRecaudar.Name = "lblDeberiaRecaudar";
             lblDeberiaRecaudar.Size = new Size(332, 21);
             lblDeberiaRecaudar.TabIndex = 1;
@@ -1014,7 +1014,7 @@
             lblTotalRecaudar.AutoSize = true;
             lblTotalRecaudar.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
             lblTotalRecaudar.ForeColor = Color.White;
-            lblTotalRecaudar.Location = new Point(20, 15);
+            lblTotalRecaudar.Location = new Point(20, 13);
             lblTotalRecaudar.Name = "lblTotalRecaudar";
             lblTotalRecaudar.Size = new Size(214, 25);
             lblTotalRecaudar.TabIndex = 0;
@@ -1027,9 +1027,9 @@
             btnDescargarPDFSemanal.FlatStyle = FlatStyle.Flat;
             btnDescargarPDFSemanal.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnDescargarPDFSemanal.ForeColor = Color.White;
-            btnDescargarPDFSemanal.Location = new Point(680, 15);
+            btnDescargarPDFSemanal.Location = new Point(680, 13);
             btnDescargarPDFSemanal.Name = "btnDescargarPDFSemanal";
-            btnDescargarPDFSemanal.Size = new Size(200, 35);
+            btnDescargarPDFSemanal.Size = new Size(200, 31);
             btnDescargarPDFSemanal.TabIndex = 2;
             btnDescargarPDFSemanal.Text = "📄 Descargar PDF Semanal";
             btnDescargarPDFSemanal.UseVisualStyleBackColor = false;
@@ -1042,9 +1042,9 @@
             listViewCobrosSemana.FullRowSelect = true;
             listViewCobrosSemana.GridLines = true;
             listViewCobrosSemana.HeaderStyle = ColumnHeaderStyle.Nonclickable;
-            listViewCobrosSemana.Location = new Point(0, 140);
+            listViewCobrosSemana.Location = new Point(0, 124);
             listViewCobrosSemana.Name = "listViewCobrosSemana";
-            listViewCobrosSemana.Size = new Size(882, 337);
+            listViewCobrosSemana.Size = new Size(882, 298);
             listViewCobrosSemana.TabIndex = 1;
             listViewCobrosSemana.UseCompatibleStateImageBehavior = false;
             listViewCobrosSemana.View = View.Details;
@@ -1054,7 +1054,7 @@
             lblCobrosSemanaTitle.AutoSize = true;
             lblCobrosSemanaTitle.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
             lblCobrosSemanaTitle.ForeColor = Color.FromArgb(41, 53, 65);
-            lblCobrosSemanaTitle.Location = new Point(0, 15);
+            lblCobrosSemanaTitle.Location = new Point(0, 13);
             lblCobrosSemanaTitle.Name = "lblCobrosSemanaTitle";
             lblCobrosSemanaTitle.Size = new Size(367, 25);
             lblCobrosSemanaTitle.TabIndex = 0;
@@ -1062,17 +1062,17 @@
             // 
             // Empleados
             // 
-            AutoScaleDimensions = new SizeF(7F, 17F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(236, 240, 241);
-            ClientSize = new Size(1364, 749);
+            ClientSize = new Size(1364, 661);
             Controls.Add(panelMain);
             Controls.Add(panelHeader);
             FormBorderStyle = FormBorderStyle.FixedDialog;
             MaximizeBox = false;
             Name = "Empleados";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Sistema de Préstamos - Empleados";
+            Text = "Empleados";
             panelHeader.ResumeLayout(false);
             panelHeader.PerformLayout();
             panelMain.ResumeLayout(false);
