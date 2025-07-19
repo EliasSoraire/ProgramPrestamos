@@ -39,11 +39,8 @@
             dgvClientes = new DataGridView();
             lblListadoClientes = new Label();
             panelForm = new Panel();
-            panelButtons = new Panel();
+            panel1 = new Panel();
             btnCancelar = new Button();
-            btnEliminar = new Button();
-            btnEditar = new Button();
-            btnNuevo = new Button();
             btnGuardar = new Button();
             cmbEmpleadoAsignado = new ComboBox();
             lblEmpleadoAsignado = new Label();
@@ -73,7 +70,7 @@
             panelListado.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvClientes).BeginInit();
             panelForm.SuspendLayout();
-            panelButtons.SuspendLayout();
+            panel1.SuspendLayout();
             panelFotos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picFotoDorso).BeginInit();
             ((System.ComponentModel.ISupportInitialize)picFotoFrente).BeginInit();
@@ -149,10 +146,10 @@
             panelListado.Controls.Add(txtBuscar);
             panelListado.Controls.Add(dgvClientes);
             panelListado.Controls.Add(lblListadoClientes);
-            panelListado.Location = new Point(620, 20);
+            panelListado.Location = new Point(601, 3);
             panelListado.Name = "panelListado";
             panelListado.Padding = new Padding(20);
-            panelListado.Size = new Size(560, 618);
+            panelListado.Size = new Size(599, 618);
             panelListado.TabIndex = 1;
             // 
             // lblBuscar
@@ -162,9 +159,9 @@
             lblBuscar.ForeColor = Color.FromArgb(52, 73, 94);
             lblBuscar.Location = new Point(20, 60);
             lblBuscar.Name = "lblBuscar";
-            lblBuscar.Size = new Size(263, 19);
+            lblBuscar.Size = new Size(211, 19);
             lblBuscar.TabIndex = 3;
-            lblBuscar.Text = "🔍 Buscar por nombre, DNI o código:";
+            lblBuscar.Text = "🔍 Buscar por Nombre o DNI:";
             // 
             // txtBuscar
             // 
@@ -173,8 +170,9 @@
             txtBuscar.Location = new Point(20, 85);
             txtBuscar.Name = "txtBuscar";
             txtBuscar.PlaceholderText = "Escriba para buscar...";
-            txtBuscar.Size = new Size(520, 25);
+            txtBuscar.Size = new Size(559, 25);
             txtBuscar.TabIndex = 2;
+            txtBuscar.TextChanged += txtBuscar_TextChanged;
             // 
             // dgvClientes
             // 
@@ -195,8 +193,9 @@
             dgvClientes.RowHeadersVisible = false;
             dgvClientes.RowTemplate.Height = 30;
             dgvClientes.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvClientes.Size = new Size(520, 473);
+            dgvClientes.Size = new Size(559, 473);
             dgvClientes.TabIndex = 1;
+            dgvClientes.CellClick += dgvClientes_CellClick;
             // 
             // lblListadoClientes
             // 
@@ -213,7 +212,7 @@
             // 
             panelForm.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             panelForm.BackColor = Color.White;
-            panelForm.Controls.Add(panelButtons);
+            panelForm.Controls.Add(panel1);
             panelForm.Controls.Add(cmbEmpleadoAsignado);
             panelForm.Controls.Add(lblEmpleadoAsignado);
             panelForm.Controls.Add(txtTelefono);
@@ -228,101 +227,59 @@
             panelForm.Controls.Add(txtNombreApellido);
             panelForm.Controls.Add(lblNombreApellido);
             panelForm.Controls.Add(lblFormularioCliente);
-            panelForm.Location = new Point(20, 20);
+            panelForm.Location = new Point(20, 3);
             panelForm.Name = "panelForm";
             panelForm.Padding = new Padding(20);
             panelForm.Size = new Size(580, 618);
             panelForm.TabIndex = 0;
             // 
-            // panelButtons
+            // panel1
             // 
-            panelButtons.Controls.Add(btnCancelar);
-            panelButtons.Controls.Add(btnEliminar);
-            panelButtons.Controls.Add(btnEditar);
-            panelButtons.Controls.Add(btnNuevo);
-            panelButtons.Controls.Add(btnGuardar);
-            panelButtons.Dock = DockStyle.Bottom;
-            panelButtons.Location = new Point(20, 548);
-            panelButtons.Name = "panelButtons";
-            panelButtons.Size = new Size(540, 50);
-            panelButtons.TabIndex = 16;
+            panel1.Controls.Add(btnCancelar);
+            panel1.Controls.Add(btnGuardar);
+            panel1.Location = new Point(150, 520);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(280, 67);
+            panel1.TabIndex = 16;
             // 
             // btnCancelar
             // 
+            btnCancelar.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             btnCancelar.BackColor = Color.FromArgb(149, 165, 166);
             btnCancelar.FlatAppearance.BorderSize = 0;
             btnCancelar.FlatStyle = FlatStyle.Flat;
             btnCancelar.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnCancelar.ForeColor = Color.White;
-            btnCancelar.Location = new Point(430, 5);
+            btnCancelar.Location = new Point(150, 18);
             btnCancelar.Name = "btnCancelar";
-            btnCancelar.Size = new Size(100, 40);
-            btnCancelar.TabIndex = 4;
+            btnCancelar.Size = new Size(120, 39);
+            btnCancelar.TabIndex = 20;
             btnCancelar.Text = "❌ Cancelar";
             btnCancelar.UseVisualStyleBackColor = false;
-            // 
-            // btnEliminar
-            // 
-            btnEliminar.BackColor = Color.FromArgb(231, 76, 60);
-            btnEliminar.FlatAppearance.BorderSize = 0;
-            btnEliminar.FlatStyle = FlatStyle.Flat;
-            btnEliminar.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            btnEliminar.ForeColor = Color.White;
-            btnEliminar.Location = new Point(320, 5);
-            btnEliminar.Name = "btnEliminar";
-            btnEliminar.Size = new Size(100, 40);
-            btnEliminar.TabIndex = 3;
-            btnEliminar.Text = "🗑️ Eliminar";
-            btnEliminar.UseVisualStyleBackColor = false;
-            // 
-            // btnEditar
-            // 
-            btnEditar.BackColor = Color.FromArgb(241, 196, 15);
-            btnEditar.FlatAppearance.BorderSize = 0;
-            btnEditar.FlatStyle = FlatStyle.Flat;
-            btnEditar.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            btnEditar.ForeColor = Color.White;
-            btnEditar.Location = new Point(210, 5);
-            btnEditar.Name = "btnEditar";
-            btnEditar.Size = new Size(100, 40);
-            btnEditar.TabIndex = 2;
-            btnEditar.Text = "✏️ Editar";
-            btnEditar.UseVisualStyleBackColor = false;
-            // 
-            // btnNuevo
-            // 
-            btnNuevo.BackColor = Color.FromArgb(52, 152, 219);
-            btnNuevo.FlatAppearance.BorderSize = 0;
-            btnNuevo.FlatStyle = FlatStyle.Flat;
-            btnNuevo.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            btnNuevo.ForeColor = Color.White;
-            btnNuevo.Location = new Point(100, 5);
-            btnNuevo.Name = "btnNuevo";
-            btnNuevo.Size = new Size(100, 40);
-            btnNuevo.TabIndex = 1;
-            btnNuevo.Text = "➕ Nuevo";
-            btnNuevo.UseVisualStyleBackColor = false;
+            btnCancelar.Click += btnCancelar_Click;
             // 
             // btnGuardar
             // 
+            btnGuardar.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             btnGuardar.BackColor = Color.FromArgb(39, 174, 96);
             btnGuardar.FlatAppearance.BorderSize = 0;
             btnGuardar.FlatStyle = FlatStyle.Flat;
-            btnGuardar.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnGuardar.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             btnGuardar.ForeColor = Color.White;
-            btnGuardar.Location = new Point(0, 5);
+            btnGuardar.Location = new Point(14, 18);
             btnGuardar.Name = "btnGuardar";
-            btnGuardar.Size = new Size(90, 40);
-            btnGuardar.TabIndex = 0;
+            btnGuardar.Size = new Size(120, 39);
+            btnGuardar.TabIndex = 17;
             btnGuardar.Text = "💾 Guardar";
             btnGuardar.UseVisualStyleBackColor = false;
+            btnGuardar.Click += btnGuardar_Click;
             // 
             // cmbEmpleadoAsignado
             // 
             cmbEmpleadoAsignado.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbEmpleadoAsignado.Font = new Font("Segoe UI", 10F);
             cmbEmpleadoAsignado.FormattingEnabled = true;
-            cmbEmpleadoAsignado.Location = new Point(290, 500);
+            cmbEmpleadoAsignado.Location = new Point(290, 469);
             cmbEmpleadoAsignado.Name = "cmbEmpleadoAsignado";
             cmbEmpleadoAsignado.Size = new Size(270, 25);
             cmbEmpleadoAsignado.TabIndex = 15;
@@ -332,7 +289,7 @@
             lblEmpleadoAsignado.AutoSize = true;
             lblEmpleadoAsignado.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             lblEmpleadoAsignado.ForeColor = Color.FromArgb(52, 73, 94);
-            lblEmpleadoAsignado.Location = new Point(290, 475);
+            lblEmpleadoAsignado.Location = new Point(290, 444);
             lblEmpleadoAsignado.Name = "lblEmpleadoAsignado";
             lblEmpleadoAsignado.Size = new Size(147, 19);
             lblEmpleadoAsignado.TabIndex = 14;
@@ -341,7 +298,7 @@
             // txtTelefono
             // 
             txtTelefono.Font = new Font("Segoe UI", 10F);
-            txtTelefono.Location = new Point(20, 500);
+            txtTelefono.Location = new Point(20, 469);
             txtTelefono.Name = "txtTelefono";
             txtTelefono.PlaceholderText = "Ej: +54 9 11 1234-5678";
             txtTelefono.Size = new Size(250, 25);
@@ -352,7 +309,7 @@
             lblTelefono.AutoSize = true;
             lblTelefono.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             lblTelefono.ForeColor = Color.FromArgb(52, 73, 94);
-            lblTelefono.Location = new Point(20, 475);
+            lblTelefono.Location = new Point(20, 444);
             lblTelefono.Name = "lblTelefono";
             lblTelefono.Size = new Size(71, 19);
             lblTelefono.TabIndex = 12;
@@ -361,7 +318,7 @@
             // txtDomicilioComercial
             // 
             txtDomicilioComercial.Font = new Font("Segoe UI", 10F);
-            txtDomicilioComercial.Location = new Point(20, 435);
+            txtDomicilioComercial.Location = new Point(20, 411);
             txtDomicilioComercial.Name = "txtDomicilioComercial";
             txtDomicilioComercial.PlaceholderText = "Dirección del negocio o trabajo (opcional)";
             txtDomicilioComercial.Size = new Size(540, 25);
@@ -372,7 +329,7 @@
             lblDomicilioComercial.AutoSize = true;
             lblDomicilioComercial.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             lblDomicilioComercial.ForeColor = Color.FromArgb(52, 73, 94);
-            lblDomicilioComercial.Location = new Point(20, 410);
+            lblDomicilioComercial.Location = new Point(20, 388);
             lblDomicilioComercial.Name = "lblDomicilioComercial";
             lblDomicilioComercial.Size = new Size(149, 19);
             lblDomicilioComercial.TabIndex = 10;
@@ -381,7 +338,7 @@
             // txtDomicilioParticular
             // 
             txtDomicilioParticular.Font = new Font("Segoe UI", 10F);
-            txtDomicilioParticular.Location = new Point(20, 375);
+            txtDomicilioParticular.Location = new Point(20, 355);
             txtDomicilioParticular.Name = "txtDomicilioParticular";
             txtDomicilioParticular.PlaceholderText = "Dirección completa de la casa";
             txtDomicilioParticular.Size = new Size(540, 25);
@@ -392,7 +349,7 @@
             lblDomicilioParticular.AutoSize = true;
             lblDomicilioParticular.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             lblDomicilioParticular.ForeColor = Color.FromArgb(52, 73, 94);
-            lblDomicilioParticular.Location = new Point(20, 350);
+            lblDomicilioParticular.Location = new Point(20, 333);
             lblDomicilioParticular.Name = "lblDomicilioParticular";
             lblDomicilioParticular.Size = new Size(147, 19);
             lblDomicilioParticular.TabIndex = 8;
@@ -532,6 +489,7 @@
             txtDNI.PlaceholderText = "Solo números, sin puntos";
             txtDNI.Size = new Size(200, 25);
             txtDNI.TabIndex = 1;
+            txtDNI.KeyPress += txtDNI_KeyPress;
             // 
             // lblDNI
             // 
@@ -584,10 +542,10 @@
             Controls.Add(panelMain);
             Controls.Add(panelHeader);
             FormBorderStyle = FormBorderStyle.FixedDialog;
-            MaximizeBox = false;
             Name = "Clientes";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Sistema de Préstamos - Gestión de Clientes";
+            Load += Clientes_Load;
             panelHeader.ResumeLayout(false);
             panelHeader.PerformLayout();
             panelMain.ResumeLayout(false);
@@ -596,7 +554,7 @@
             ((System.ComponentModel.ISupportInitialize)dgvClientes).EndInit();
             panelForm.ResumeLayout(false);
             panelForm.PerformLayout();
-            panelButtons.ResumeLayout(false);
+            panel1.ResumeLayout(false);
             panelFotos.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)picFotoDorso).EndInit();
             ((System.ComponentModel.ISupportInitialize)picFotoFrente).EndInit();
@@ -636,16 +594,13 @@
         private TextBox txtTelefono;
         private Label lblEmpleadoAsignado;
         private ComboBox cmbEmpleadoAsignado;
-        private Panel panelButtons;
-        private Button btnCancelar;
-        private Button btnEliminar;
-        private Button btnEditar;
-        private Button btnNuevo;
-        private Button btnGuardar;
         private Panel panelListado;
         private Label lblListadoClientes;
         private DataGridView dgvClientes;
         private TextBox txtBuscar;
         private Label lblBuscar;
+        private Panel panel1;
+        private Button btnCancelar;
+        private Button btnGuardar;
     }
 }
