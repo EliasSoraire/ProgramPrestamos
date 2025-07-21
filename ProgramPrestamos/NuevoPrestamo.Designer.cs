@@ -33,7 +33,6 @@
             lblTitle = new Label();
             panelMain = new Panel();
             panelButtons = new Panel();
-            btnCalcular = new Button();
             btnCancelar = new Button();
             btnGuardar = new Button();
             panelCalculos = new Panel();
@@ -43,17 +42,17 @@
             lblTotalPagar = new Label();
             lblCalculosTitle = new Label();
             panelPrestamoProducto = new Panel();
-            lblStockDisponible = new Label();
-            txtTotalProducto = new TextBox();
-            lblTotalProducto = new Label();
-            txtPrecioUnitario = new TextBox();
-            lblPrecioUnitario = new Label();
-            txtCantidadProducto = new TextBox();
+            btnConfirmarProducto = new Button();
+            txtPrecioCuota = new TextBox();
+            lblPrecioCuota = new Label();
+            lblPrecioProducto = new Label();
+            cmbCantidadProducto = new ComboBox();
             lblCantidadProducto = new Label();
             cmbProducto = new ComboBox();
             lblProducto = new Label();
             lblPrestamoProductoTitle = new Label();
             panelPrestamoEfectivo = new Panel();
+            btnCalcularEfectivo = new Button();
             txtImporte = new TextBox();
             lblImporte = new Label();
             lblPrestamoEfectivoTitle = new Label();
@@ -134,27 +133,12 @@
             // 
             // panelButtons
             // 
-            panelButtons.Controls.Add(btnCalcular);
             panelButtons.Controls.Add(btnCancelar);
             panelButtons.Controls.Add(btnGuardar);
-            panelButtons.Location = new Point(20, 540);
+            panelButtons.Location = new Point(20, 518);
             panelButtons.Name = "panelButtons";
             panelButtons.Size = new Size(960, 60);
             panelButtons.TabIndex = 5;
-            // 
-            // btnCalcular
-            // 
-            btnCalcular.BackColor = Color.FromArgb(52, 152, 219);
-            btnCalcular.FlatAppearance.BorderSize = 0;
-            btnCalcular.FlatStyle = FlatStyle.Flat;
-            btnCalcular.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            btnCalcular.ForeColor = Color.White;
-            btnCalcular.Location = new Point(330, 10);
-            btnCalcular.Name = "btnCalcular";
-            btnCalcular.Size = new Size(120, 40);
-            btnCalcular.TabIndex = 2;
-            btnCalcular.Text = "\U0001f9ee Calcular";
-            btnCalcular.UseVisualStyleBackColor = false;
             // 
             // btnCancelar
             // 
@@ -169,6 +153,7 @@
             btnCancelar.TabIndex = 1;
             btnCancelar.Text = "❌ Cancelar";
             btnCancelar.UseVisualStyleBackColor = false;
+            btnCancelar.Click += btnCancelar_Click;
             // 
             // btnGuardar
             // 
@@ -183,6 +168,7 @@
             btnGuardar.TabIndex = 0;
             btnGuardar.Text = "💾 Guardar";
             btnGuardar.UseVisualStyleBackColor = false;
+            btnGuardar.Click += btnGuardar_Click;
             // 
             // panelCalculos
             // 
@@ -192,7 +178,7 @@
             panelCalculos.Controls.Add(lblInteresGenerado);
             panelCalculos.Controls.Add(lblTotalPagar);
             panelCalculos.Controls.Add(lblCalculosTitle);
-            panelCalculos.Location = new Point(500, 300);
+            panelCalculos.Location = new Point(500, 268);
             panelCalculos.Name = "panelCalculos";
             panelCalculos.Padding = new Padding(20, 20, 20, 20);
             panelCalculos.Size = new Size(480, 220);
@@ -216,9 +202,9 @@
             lblValorCuota.ForeColor = Color.FromArgb(52, 152, 219);
             lblValorCuota.Location = new Point(20, 125);
             lblValorCuota.Name = "lblValorCuota";
-            lblValorCuota.Size = new Size(177, 21);
+            lblValorCuota.Size = new Size(155, 21);
             lblValorCuota.TabIndex = 3;
-            lblValorCuota.Text = "Valor por Cuota: $0.00";
+            lblValorCuota.Text = "Valor por Cuota: $0";
             // 
             // lblInteresGenerado
             // 
@@ -227,9 +213,9 @@
             lblInteresGenerado.ForeColor = Color.FromArgb(230, 126, 34);
             lblInteresGenerado.Location = new Point(20, 95);
             lblInteresGenerado.Name = "lblInteresGenerado";
-            lblInteresGenerado.Size = new Size(188, 21);
+            lblInteresGenerado.Size = new Size(166, 21);
             lblInteresGenerado.TabIndex = 2;
-            lblInteresGenerado.Text = "Interés Generado: $0.00";
+            lblInteresGenerado.Text = "Interés Generado: $0";
             // 
             // lblTotalPagar
             // 
@@ -238,9 +224,9 @@
             lblTotalPagar.ForeColor = Color.FromArgb(39, 174, 96);
             lblTotalPagar.Location = new Point(20, 65);
             lblTotalPagar.Name = "lblTotalPagar";
-            lblTotalPagar.Size = new Size(158, 21);
+            lblTotalPagar.Size = new Size(136, 21);
             lblTotalPagar.TabIndex = 1;
-            lblTotalPagar.Text = "Total a Pagar: $0.00";
+            lblTotalPagar.Text = "Total a Pagar: $0";
             // 
             // lblCalculosTitle
             // 
@@ -256,91 +242,84 @@
             // panelPrestamoProducto
             // 
             panelPrestamoProducto.BackColor = Color.White;
-            panelPrestamoProducto.Controls.Add(lblStockDisponible);
-            panelPrestamoProducto.Controls.Add(txtTotalProducto);
-            panelPrestamoProducto.Controls.Add(lblTotalProducto);
-            panelPrestamoProducto.Controls.Add(txtPrecioUnitario);
-            panelPrestamoProducto.Controls.Add(lblPrecioUnitario);
-            panelPrestamoProducto.Controls.Add(txtCantidadProducto);
+            panelPrestamoProducto.Controls.Add(btnConfirmarProducto);
+            panelPrestamoProducto.Controls.Add(txtPrecioCuota);
+            panelPrestamoProducto.Controls.Add(lblPrecioCuota);
+            panelPrestamoProducto.Controls.Add(lblPrecioProducto);
+            panelPrestamoProducto.Controls.Add(cmbCantidadProducto);
             panelPrestamoProducto.Controls.Add(lblCantidadProducto);
             panelPrestamoProducto.Controls.Add(cmbProducto);
             panelPrestamoProducto.Controls.Add(lblProducto);
             panelPrestamoProducto.Controls.Add(lblPrestamoProductoTitle);
-            panelPrestamoProducto.Location = new Point(20, 300);
+            panelPrestamoProducto.Location = new Point(20, 268);
             panelPrestamoProducto.Name = "panelPrestamoProducto";
             panelPrestamoProducto.Padding = new Padding(20, 20, 20, 20);
             panelPrestamoProducto.Size = new Size(460, 220);
             panelPrestamoProducto.TabIndex = 3;
             panelPrestamoProducto.Visible = false;
             // 
-            // lblStockDisponible
+            // btnConfirmarProducto
             // 
-            lblStockDisponible.AutoSize = true;
-            lblStockDisponible.Font = new Font("Segoe UI", 9F, FontStyle.Italic);
-            lblStockDisponible.ForeColor = Color.FromArgb(127, 140, 141);
-            lblStockDisponible.Location = new Point(20, 185);
-            lblStockDisponible.Name = "lblStockDisponible";
-            lblStockDisponible.Size = new Size(287, 15);
-            lblStockDisponible.TabIndex = 9;
-            lblStockDisponible.Text = "Stock disponible: -- (Se descontará automáticamente)";
+            btnConfirmarProducto.BackColor = Color.FromArgb(155, 89, 182);
+            btnConfirmarProducto.FlatAppearance.BorderSize = 0;
+            btnConfirmarProducto.FlatStyle = FlatStyle.Flat;
+            btnConfirmarProducto.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnConfirmarProducto.ForeColor = Color.White;
+            btnConfirmarProducto.Location = new Point(20, 200);
+            btnConfirmarProducto.Name = "btnConfirmarProducto";
+            btnConfirmarProducto.Size = new Size(200, 35);
+            btnConfirmarProducto.TabIndex = 8;
+            btnConfirmarProducto.Text = "✅ Confirmar y Calcular";
+            btnConfirmarProducto.UseVisualStyleBackColor = false;
+            btnConfirmarProducto.Click += btnConfirmarProducto_Click;
             // 
-            // txtTotalProducto
+            // txtPrecioCuota
             // 
-            txtTotalProducto.BackColor = Color.FromArgb(236, 240, 241);
-            txtTotalProducto.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            txtTotalProducto.Location = new Point(190, 145);
-            txtTotalProducto.Name = "txtTotalProducto";
-            txtTotalProducto.ReadOnly = true;
-            txtTotalProducto.Size = new Size(150, 25);
-            txtTotalProducto.TabIndex = 8;
-            txtTotalProducto.TextAlign = HorizontalAlignment.Right;
+            txtPrecioCuota.Font = new Font("Segoe UI", 10F);
+            txtPrecioCuota.Location = new Point(20, 164);
+            txtPrecioCuota.Name = "txtPrecioCuota";
+            txtPrecioCuota.Size = new Size(150, 25);
+            txtPrecioCuota.TabIndex = 7;
+            txtPrecioCuota.TextAlign = HorizontalAlignment.Right;
             // 
-            // lblTotalProducto
+            // lblPrecioCuota
             // 
-            lblTotalProducto.AutoSize = true;
-            lblTotalProducto.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            lblTotalProducto.ForeColor = Color.FromArgb(52, 73, 94);
-            lblTotalProducto.Location = new Point(190, 120);
-            lblTotalProducto.Name = "lblTotalProducto";
-            lblTotalProducto.Size = new Size(133, 19);
-            lblTotalProducto.TabIndex = 7;
-            lblTotalProducto.Text = "Total del Producto";
+            lblPrecioCuota.AutoSize = true;
+            lblPrecioCuota.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            lblPrecioCuota.ForeColor = Color.FromArgb(52, 73, 94);
+            lblPrecioCuota.Location = new Point(20, 136);
+            lblPrecioCuota.Name = "lblPrecioCuota";
+            lblPrecioCuota.Size = new Size(129, 19);
+            lblPrecioCuota.TabIndex = 6;
+            lblPrecioCuota.Text = "Precio por Cuotas";
             // 
-            // txtPrecioUnitario
+            // lblPrecioProducto
             // 
-            txtPrecioUnitario.Font = new Font("Segoe UI", 10F);
-            txtPrecioUnitario.Location = new Point(20, 145);
-            txtPrecioUnitario.Name = "txtPrecioUnitario";
-            txtPrecioUnitario.Size = new Size(150, 25);
-            txtPrecioUnitario.TabIndex = 6;
-            txtPrecioUnitario.TextAlign = HorizontalAlignment.Right;
+            lblPrecioProducto.AutoSize = true;
+            lblPrecioProducto.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            lblPrecioProducto.ForeColor = Color.FromArgb(39, 174, 96);
+            lblPrecioProducto.Location = new Point(320, 91);
+            lblPrecioProducto.Name = "lblPrecioProducto";
+            lblPrecioProducto.Size = new Size(72, 19);
+            lblPrecioProducto.TabIndex = 5;
+            lblPrecioProducto.Text = "Precio: --";
             // 
-            // lblPrecioUnitario
+            // cmbCantidadProducto
             // 
-            lblPrecioUnitario.AutoSize = true;
-            lblPrecioUnitario.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            lblPrecioUnitario.ForeColor = Color.FromArgb(52, 73, 94);
-            lblPrecioUnitario.Location = new Point(20, 120);
-            lblPrecioUnitario.Name = "lblPrecioUnitario";
-            lblPrecioUnitario.Size = new Size(110, 19);
-            lblPrecioUnitario.TabIndex = 5;
-            lblPrecioUnitario.Text = "Precio Unitario";
-            // 
-            // txtCantidadProducto
-            // 
-            txtCantidadProducto.Font = new Font("Segoe UI", 10F);
-            txtCantidadProducto.Location = new Point(320, 80);
-            txtCantidadProducto.Name = "txtCantidadProducto";
-            txtCantidadProducto.Size = new Size(100, 25);
-            txtCantidadProducto.TabIndex = 4;
-            txtCantidadProducto.TextAlign = HorizontalAlignment.Right;
+            cmbCantidadProducto.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbCantidadProducto.Font = new Font("Segoe UI", 10F);
+            cmbCantidadProducto.FormattingEnabled = true;
+            cmbCantidadProducto.Location = new Point(320, 62);
+            cmbCantidadProducto.Name = "cmbCantidadProducto";
+            cmbCantidadProducto.Size = new Size(100, 25);
+            cmbCantidadProducto.TabIndex = 4;
             // 
             // lblCantidadProducto
             // 
             lblCantidadProducto.AutoSize = true;
             lblCantidadProducto.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             lblCantidadProducto.ForeColor = Color.FromArgb(52, 73, 94);
-            lblCantidadProducto.Location = new Point(320, 55);
+            lblCantidadProducto.Location = new Point(320, 34);
             lblCantidadProducto.Name = "lblCantidadProducto";
             lblCantidadProducto.Size = new Size(69, 19);
             lblCantidadProducto.TabIndex = 3;
@@ -351,17 +330,18 @@
             cmbProducto.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbProducto.Font = new Font("Segoe UI", 10F);
             cmbProducto.FormattingEnabled = true;
-            cmbProducto.Location = new Point(20, 80);
+            cmbProducto.Location = new Point(20, 62);
             cmbProducto.Name = "cmbProducto";
             cmbProducto.Size = new Size(280, 25);
             cmbProducto.TabIndex = 2;
+            cmbProducto.SelectedIndexChanged += cmbProducto_SelectedIndexChanged;
             // 
             // lblProducto
             // 
             lblProducto.AutoSize = true;
             lblProducto.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             lblProducto.ForeColor = Color.FromArgb(52, 73, 94);
-            lblProducto.Location = new Point(20, 55);
+            lblProducto.Location = new Point(20, 34);
             lblProducto.Name = "lblProducto";
             lblProducto.Size = new Size(71, 19);
             lblProducto.TabIndex = 1;
@@ -372,7 +352,7 @@
             lblPrestamoProductoTitle.AutoSize = true;
             lblPrestamoProductoTitle.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             lblPrestamoProductoTitle.ForeColor = Color.FromArgb(155, 89, 182);
-            lblPrestamoProductoTitle.Location = new Point(20, 20);
+            lblPrestamoProductoTitle.Location = new Point(20, 0);
             lblPrestamoProductoTitle.Name = "lblPrestamoProductoTitle";
             lblPrestamoProductoTitle.Size = new Size(215, 21);
             lblPrestamoProductoTitle.TabIndex = 0;
@@ -381,6 +361,7 @@
             // panelPrestamoEfectivo
             // 
             panelPrestamoEfectivo.BackColor = Color.White;
+            panelPrestamoEfectivo.Controls.Add(btnCalcularEfectivo);
             panelPrestamoEfectivo.Controls.Add(txtImporte);
             panelPrestamoEfectivo.Controls.Add(lblImporte);
             panelPrestamoEfectivo.Controls.Add(lblPrestamoEfectivoTitle);
@@ -390,10 +371,25 @@
             panelPrestamoEfectivo.Size = new Size(460, 120);
             panelPrestamoEfectivo.TabIndex = 2;
             // 
+            // btnCalcularEfectivo
+            // 
+            btnCalcularEfectivo.BackColor = Color.FromArgb(39, 174, 96);
+            btnCalcularEfectivo.FlatAppearance.BorderSize = 0;
+            btnCalcularEfectivo.FlatStyle = FlatStyle.Flat;
+            btnCalcularEfectivo.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnCalcularEfectivo.ForeColor = Color.White;
+            btnCalcularEfectivo.Location = new Point(240, 62);
+            btnCalcularEfectivo.Name = "btnCalcularEfectivo";
+            btnCalcularEfectivo.Size = new Size(180, 35);
+            btnCalcularEfectivo.TabIndex = 3;
+            btnCalcularEfectivo.Text = "💾 Guardar Detalles";
+            btnCalcularEfectivo.UseVisualStyleBackColor = false;
+            btnCalcularEfectivo.Click += btnCalcularEfectivo_Click;
+            // 
             // txtImporte
             // 
             txtImporte.Font = new Font("Segoe UI", 10F);
-            txtImporte.Location = new Point(20, 80);
+            txtImporte.Location = new Point(20, 62);
             txtImporte.Name = "txtImporte";
             txtImporte.Size = new Size(200, 25);
             txtImporte.TabIndex = 2;
@@ -404,7 +400,7 @@
             lblImporte.AutoSize = true;
             lblImporte.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             lblImporte.ForeColor = Color.FromArgb(52, 73, 94);
-            lblImporte.Location = new Point(20, 55);
+            lblImporte.Location = new Point(20, 34);
             lblImporte.Name = "lblImporte";
             lblImporte.Size = new Size(127, 19);
             lblImporte.TabIndex = 1;
@@ -415,7 +411,7 @@
             lblPrestamoEfectivoTitle.AutoSize = true;
             lblPrestamoEfectivoTitle.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             lblPrestamoEfectivoTitle.ForeColor = Color.FromArgb(39, 174, 96);
-            lblPrestamoEfectivoTitle.Location = new Point(20, 20);
+            lblPrestamoEfectivoTitle.Location = new Point(20, 0);
             lblPrestamoEfectivoTitle.Name = "lblPrestamoEfectivoTitle";
             lblPrestamoEfectivoTitle.Size = new Size(195, 21);
             lblPrestamoEfectivoTitle.TabIndex = 0;
@@ -435,7 +431,7 @@
             panelDatosComunes.Controls.Add(cmbCliente);
             panelDatosComunes.Controls.Add(lblCliente);
             panelDatosComunes.Controls.Add(lblDatosComunesTitle);
-            panelDatosComunes.Location = new Point(20, 87);
+            panelDatosComunes.Location = new Point(20, 73);
             panelDatosComunes.Name = "panelDatosComunes";
             panelDatosComunes.Padding = new Padding(20, 20, 20, 20);
             panelDatosComunes.Size = new Size(960, 171);
@@ -503,9 +499,9 @@
             lblTasaInteres.ForeColor = Color.FromArgb(52, 73, 94);
             lblTasaInteres.Location = new Point(490, 49);
             lblTasaInteres.Name = "lblTasaInteres";
-            lblTasaInteres.Size = new Size(108, 19);
+            lblTasaInteres.Size = new Size(124, 19);
             lblTasaInteres.TabIndex = 5;
-            lblTasaInteres.Text = "Tasa de Interés";
+            lblTasaInteres.Text = "Tasa de Interés %";
             // 
             // cmbModalidad
             // 
@@ -542,6 +538,7 @@
             cmbCliente.Name = "cmbCliente";
             cmbCliente.Size = new Size(280, 25);
             cmbCliente.TabIndex = 2;
+            cmbCliente.SelectedIndexChanged += cmbCliente_SelectedIndexChanged;
             // 
             // lblCliente
             // 
@@ -572,7 +569,7 @@
             panelTipoPrestamo.Controls.Add(rbPrestamoProducto);
             panelTipoPrestamo.Controls.Add(rbPrestamoEfectivo);
             panelTipoPrestamo.Controls.Add(lblTipoPrestamo);
-            panelTipoPrestamo.Location = new Point(20, 20);
+            panelTipoPrestamo.Location = new Point(20, 2);
             panelTipoPrestamo.Name = "panelTipoPrestamo";
             panelTipoPrestamo.Padding = new Padding(20, 20, 20, 20);
             panelTipoPrestamo.Size = new Size(960, 62);
@@ -626,10 +623,10 @@
             Controls.Add(panelMain);
             Controls.Add(panelHeader);
             FormBorderStyle = FormBorderStyle.FixedDialog;
-            MaximizeBox = false;
             Name = "NuevoPrestamo";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Nuevo Préstamo";
+            Text = "Sistema de Préstamos - Nuevo Préstamo";
+            Load += NuevoPrestamo_Load;
             panelHeader.ResumeLayout(false);
             panelHeader.PerformLayout();
             panelMain.ResumeLayout(false);
@@ -673,17 +670,17 @@
         private System.Windows.Forms.Label lblPrestamoEfectivoTitle;
         private System.Windows.Forms.Label lblImporte;
         private System.Windows.Forms.TextBox txtImporte;
+        private System.Windows.Forms.Button btnCalcularEfectivo;
         private System.Windows.Forms.Panel panelPrestamoProducto;
         private System.Windows.Forms.Label lblPrestamoProductoTitle;
         private System.Windows.Forms.Label lblProducto;
         private System.Windows.Forms.ComboBox cmbProducto;
         private System.Windows.Forms.Label lblCantidadProducto;
-        private System.Windows.Forms.TextBox txtCantidadProducto;
-        private System.Windows.Forms.Label lblPrecioUnitario;
-        private System.Windows.Forms.TextBox txtPrecioUnitario;
-        private System.Windows.Forms.Label lblTotalProducto;
-        private System.Windows.Forms.TextBox txtTotalProducto;
-        private System.Windows.Forms.Label lblStockDisponible;
+        private System.Windows.Forms.ComboBox cmbCantidadProducto;
+        private System.Windows.Forms.Label lblPrecioProducto;
+        private System.Windows.Forms.Label lblPrecioCuota;
+        private System.Windows.Forms.TextBox txtPrecioCuota;
+        private System.Windows.Forms.Button btnConfirmarProducto;
         private System.Windows.Forms.Panel panelCalculos;
         private System.Windows.Forms.Label lblCalculosTitle;
         private System.Windows.Forms.Label lblTotalPagar;
@@ -693,6 +690,5 @@
         private System.Windows.Forms.Panel panelButtons;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.Button btnCalcular;
     }
 }
