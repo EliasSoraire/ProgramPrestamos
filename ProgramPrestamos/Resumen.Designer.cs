@@ -64,7 +64,7 @@
             panelHeader.Dock = DockStyle.Top;
             panelHeader.Location = new Point(0, 0);
             panelHeader.Name = "panelHeader";
-            panelHeader.Size = new Size(1200, 80);
+            panelHeader.Size = new Size(1200, 91);
             panelHeader.TabIndex = 0;
             // 
             // lblSubtitle
@@ -72,7 +72,7 @@
             lblSubtitle.AutoSize = true;
             lblSubtitle.Font = new Font("Segoe UI", 10F);
             lblSubtitle.ForeColor = Color.FromArgb(189, 195, 199);
-            lblSubtitle.Location = new Point(20, 50);
+            lblSubtitle.Location = new Point(20, 57);
             lblSubtitle.Name = "lblSubtitle";
             lblSubtitle.Size = new Size(337, 19);
             lblSubtitle.TabIndex = 1;
@@ -83,7 +83,7 @@
             lblTitle.AutoSize = true;
             lblTitle.Font = new Font("Segoe UI", 18F, FontStyle.Bold);
             lblTitle.ForeColor = Color.White;
-            lblTitle.Location = new Point(20, 15);
+            lblTitle.Location = new Point(20, 17);
             lblTitle.Name = "lblTitle";
             lblTitle.Size = new Size(251, 32);
             lblTitle.TabIndex = 0;
@@ -100,9 +100,9 @@
             panelFilters.Controls.Add(lblFechaDesde);
             panelFilters.Controls.Add(lblFiltros);
             panelFilters.Dock = DockStyle.Top;
-            panelFilters.Location = new Point(0, 80);
+            panelFilters.Location = new Point(0, 91);
             panelFilters.Name = "panelFilters";
-            panelFilters.Size = new Size(1200, 71);
+            panelFilters.Size = new Size(1200, 80);
             panelFilters.TabIndex = 1;
             // 
             // btnDescargarPDF
@@ -112,9 +112,9 @@
             btnDescargarPDF.FlatStyle = FlatStyle.Flat;
             btnDescargarPDF.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             btnDescargarPDF.ForeColor = Color.White;
-            btnDescargarPDF.Location = new Point(900, 22);
+            btnDescargarPDF.Location = new Point(900, 25);
             btnDescargarPDF.Name = "btnDescargarPDF";
-            btnDescargarPDF.Size = new Size(130, 26);
+            btnDescargarPDF.Size = new Size(130, 29);
             btnDescargarPDF.TabIndex = 6;
             btnDescargarPDF.Text = "📄 Descargar PDF";
             btnDescargarPDF.UseVisualStyleBackColor = false;
@@ -126,9 +126,9 @@
             btnFiltrar.FlatStyle = FlatStyle.Flat;
             btnFiltrar.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             btnFiltrar.ForeColor = Color.White;
-            btnFiltrar.Location = new Point(750, 22);
+            btnFiltrar.Location = new Point(750, 25);
             btnFiltrar.Name = "btnFiltrar";
-            btnFiltrar.Size = new Size(100, 26);
+            btnFiltrar.Size = new Size(100, 29);
             btnFiltrar.TabIndex = 5;
             btnFiltrar.Text = "🔍 Filtrar";
             btnFiltrar.UseVisualStyleBackColor = false;
@@ -136,7 +136,7 @@
             // dtpFechaHasta
             // 
             dtpFechaHasta.Font = new Font("Segoe UI", 9F);
-            dtpFechaHasta.Location = new Point(560, 25);
+            dtpFechaHasta.Location = new Point(560, 28);
             dtpFechaHasta.Name = "dtpFechaHasta";
             dtpFechaHasta.Size = new Size(150, 23);
             dtpFechaHasta.TabIndex = 4;
@@ -144,7 +144,7 @@
             // dtpFechaDesde
             // 
             dtpFechaDesde.Font = new Font("Segoe UI", 9F);
-            dtpFechaDesde.Location = new Point(320, 25);
+            dtpFechaDesde.Location = new Point(320, 28);
             dtpFechaDesde.Name = "dtpFechaDesde";
             dtpFechaDesde.Size = new Size(150, 23);
             dtpFechaDesde.TabIndex = 3;
@@ -154,7 +154,7 @@
             lblFechaHasta.AutoSize = true;
             lblFechaHasta.Font = new Font("Segoe UI", 9F);
             lblFechaHasta.ForeColor = Color.White;
-            lblFechaHasta.Location = new Point(485, 27);
+            lblFechaHasta.Location = new Point(485, 31);
             lblFechaHasta.Name = "lblFechaHasta";
             lblFechaHasta.Size = new Size(72, 15);
             lblFechaHasta.TabIndex = 2;
@@ -165,7 +165,7 @@
             lblFechaDesde.AutoSize = true;
             lblFechaDesde.Font = new Font("Segoe UI", 9F);
             lblFechaDesde.ForeColor = Color.White;
-            lblFechaDesde.Location = new Point(240, 27);
+            lblFechaDesde.Location = new Point(240, 31);
             lblFechaDesde.Name = "lblFechaDesde";
             lblFechaDesde.Size = new Size(75, 15);
             lblFechaDesde.TabIndex = 1;
@@ -176,7 +176,7 @@
             lblFiltros.AutoSize = true;
             lblFiltros.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             lblFiltros.ForeColor = Color.White;
-            lblFiltros.Location = new Point(20, 26);
+            lblFiltros.Location = new Point(20, 29);
             lblFiltros.Name = "lblFiltros";
             lblFiltros.Size = new Size(160, 21);
             lblFiltros.TabIndex = 0;
@@ -190,9 +190,9 @@
             panelStats.Controls.Add(lblTotalInteresesGenerados);
             panelStats.Controls.Add(lblTotalPrestamos);
             panelStats.Dock = DockStyle.Top;
-            panelStats.Location = new Point(0, 151);
+            panelStats.Location = new Point(0, 171);
             panelStats.Name = "panelStats";
-            panelStats.Size = new Size(1200, 88);
+            panelStats.Size = new Size(1200, 100);
             panelStats.TabIndex = 2;
             // 
             // lblTotalCuotasCobradas
@@ -200,7 +200,7 @@
             lblTotalCuotasCobradas.AutoSize = true;
             lblTotalCuotasCobradas.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             lblTotalCuotasCobradas.ForeColor = Color.FromArgb(142, 68, 173);
-            lblTotalCuotasCobradas.Location = new Point(650, 50);
+            lblTotalCuotasCobradas.Location = new Point(650, 57);
             lblTotalCuotasCobradas.Name = "lblTotalCuotasCobradas";
             lblTotalCuotasCobradas.Size = new Size(190, 21);
             lblTotalCuotasCobradas.TabIndex = 3;
@@ -211,7 +211,7 @@
             lblTotalMontosPrestados.AutoSize = true;
             lblTotalMontosPrestados.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             lblTotalMontosPrestados.ForeColor = Color.FromArgb(52, 152, 219);
-            lblTotalMontosPrestados.Location = new Point(350, 50);
+            lblTotalMontosPrestados.Location = new Point(350, 57);
             lblTotalMontosPrestados.Name = "lblTotalMontosPrestados";
             lblTotalMontosPrestados.Size = new Size(196, 21);
             lblTotalMontosPrestados.TabIndex = 2;
@@ -222,7 +222,7 @@
             lblTotalInteresesGenerados.AutoSize = true;
             lblTotalInteresesGenerados.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             lblTotalInteresesGenerados.ForeColor = Color.FromArgb(39, 174, 96);
-            lblTotalInteresesGenerados.Location = new Point(350, 18);
+            lblTotalInteresesGenerados.Location = new Point(350, 20);
             lblTotalInteresesGenerados.Name = "lblTotalInteresesGenerados";
             lblTotalInteresesGenerados.Size = new Size(215, 21);
             lblTotalInteresesGenerados.TabIndex = 1;
@@ -233,7 +233,7 @@
             lblTotalPrestamos.AutoSize = true;
             lblTotalPrestamos.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             lblTotalPrestamos.ForeColor = Color.FromArgb(52, 73, 94);
-            lblTotalPrestamos.Location = new Point(20, 34);
+            lblTotalPrestamos.Location = new Point(20, 39);
             lblTotalPrestamos.Name = "lblTotalPrestamos";
             lblTotalPrestamos.Size = new Size(197, 21);
             lblTotalPrestamos.TabIndex = 0;
@@ -245,10 +245,10 @@
             panelDataGrid.Controls.Add(dgvPrestamos);
             panelDataGrid.Controls.Add(lblHistorialTitle);
             panelDataGrid.Dock = DockStyle.Fill;
-            panelDataGrid.Location = new Point(0, 239);
+            panelDataGrid.Location = new Point(0, 271);
             panelDataGrid.Name = "panelDataGrid";
-            panelDataGrid.Padding = new Padding(20, 18, 20, 18);
-            panelDataGrid.Size = new Size(1200, 361);
+            panelDataGrid.Padding = new Padding(20, 20, 20, 20);
+            panelDataGrid.Size = new Size(1200, 409);
             panelDataGrid.TabIndex = 3;
             // 
             // dgvPrestamos
@@ -280,13 +280,13 @@
             dgvPrestamos.Dock = DockStyle.Fill;
             dgvPrestamos.EnableHeadersVisualStyles = false;
             dgvPrestamos.GridColor = Color.FromArgb(189, 195, 199);
-            dgvPrestamos.Location = new Point(20, 52);
+            dgvPrestamos.Location = new Point(20, 55);
             dgvPrestamos.Name = "dgvPrestamos";
             dgvPrestamos.ReadOnly = true;
             dgvPrestamos.RowHeadersVisible = false;
             dgvPrestamos.RowTemplate.Height = 35;
             dgvPrestamos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvPrestamos.Size = new Size(1160, 291);
+            dgvPrestamos.Size = new Size(1160, 334);
             dgvPrestamos.TabIndex = 1;
             // 
             // lblHistorialTitle
@@ -295,19 +295,19 @@
             lblHistorialTitle.Dock = DockStyle.Top;
             lblHistorialTitle.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
             lblHistorialTitle.ForeColor = Color.FromArgb(41, 53, 65);
-            lblHistorialTitle.Location = new Point(20, 18);
+            lblHistorialTitle.Location = new Point(20, 20);
             lblHistorialTitle.Name = "lblHistorialTitle";
-            lblHistorialTitle.Padding = new Padding(0, 0, 0, 9);
-            lblHistorialTitle.Size = new Size(326, 34);
+            lblHistorialTitle.Padding = new Padding(0, 0, 0, 10);
+            lblHistorialTitle.Size = new Size(326, 35);
             lblHistorialTitle.TabIndex = 0;
             lblHistorialTitle.Text = "📋 Historial Completo de Préstamos";
             // 
             // Resumen
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(236, 240, 241);
-            ClientSize = new Size(1200, 600);
+            ClientSize = new Size(1200, 680);
             Controls.Add(panelDataGrid);
             Controls.Add(panelStats);
             Controls.Add(panelFilters);

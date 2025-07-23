@@ -48,5 +48,11 @@ namespace ProgramPrestamos
             var resumenForm = new Resumen();
             resumenForm.ShowDialog();
         }
+
+        private void btnComisiones_Click(object sender, EventArgs e)
+        {
+            var comisionesForm = new Comisiones();
+            comisionesForm.ShowDialog();
+        }
     }
 }

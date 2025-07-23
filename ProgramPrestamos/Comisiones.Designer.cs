@@ -155,7 +155,7 @@
             panelSeleccionEmpleado.BackColor = Color.FromArgb(236, 240, 241);
             panelSeleccionEmpleado.Controls.Add(cmbEmpleados);
             panelSeleccionEmpleado.Controls.Add(lblSeleccionEmpleado);
-            panelSeleccionEmpleado.Location = new Point(20, 8);
+            panelSeleccionEmpleado.Location = new Point(20, 0);
             panelSeleccionEmpleado.Name = "panelSeleccionEmpleado";
             panelSeleccionEmpleado.Padding = new Padding(15);
             panelSeleccionEmpleado.Size = new Size(1120, 70);
@@ -192,7 +192,7 @@
             panelConfiguracionComision.Controls.Add(numericUpDownPorcentajeEfectivo);
             panelConfiguracionComision.Controls.Add(lblPorcentajeEfectivo);
             panelConfiguracionComision.Controls.Add(lblConfiguracionComision);
-            panelConfiguracionComision.Location = new Point(20, 79);
+            panelConfiguracionComision.Location = new Point(20, 70);
             panelConfiguracionComision.Name = "panelConfiguracionComision";
             panelConfiguracionComision.Padding = new Padding(15);
             panelConfiguracionComision.Size = new Size(1120, 70);
@@ -275,7 +275,7 @@
             panelPrestamosPendientes.BackColor = Color.FromArgb(236, 240, 241);
             panelPrestamosPendientes.Controls.Add(dgvPrestamosPendientes);
             panelPrestamosPendientes.Controls.Add(lblPrestamosPendientes);
-            panelPrestamosPendientes.Location = new Point(20, 149);
+            panelPrestamosPendientes.Location = new Point(20, 140);
             panelPrestamosPendientes.Name = "panelPrestamosPendientes";
             panelPrestamosPendientes.Padding = new Padding(15);
             panelPrestamosPendientes.Size = new Size(1120, 220);
@@ -321,7 +321,7 @@
             panelComisionProductos.Controls.Add(lblComisionProductos);
             panelComisionProductos.Controls.Add(lblTotalProductos);
             panelComisionProductos.Controls.Add(lblComisionProductosTitle);
-            panelComisionProductos.Location = new Point(570, 10);
+            panelComisionProductos.Location = new Point(570, 3);
             panelComisionProductos.Name = "panelComisionProductos";
             panelComisionProductos.Padding = new Padding(15);
             panelComisionProductos.Size = new Size(540, 100);
@@ -367,7 +367,7 @@
             panelComisionEfectivo.Controls.Add(lblComisionEfectivo);
             panelComisionEfectivo.Controls.Add(lblTotalEfectivo);
             panelComisionEfectivo.Controls.Add(lblComisionEfectivoTitle);
-            panelComisionEfectivo.Location = new Point(10, 10);
+            panelComisionEfectivo.Location = new Point(10, 3);
             panelComisionEfectivo.Name = "panelComisionEfectivo";
             panelComisionEfectivo.Padding = new Padding(15);
             panelComisionEfectivo.Size = new Size(540, 100);
@@ -413,7 +413,7 @@
             panelAcciones.Controls.Add(btnGenerarPDFDetallado);
             panelAcciones.Controls.Add(btnMarcarComoPagado);
             panelAcciones.Controls.Add(lblTotalPagar);
-            panelAcciones.Location = new Point(20, 478);
+            panelAcciones.Location = new Point(20, 462);
             panelAcciones.Name = "panelAcciones";
             panelAcciones.Padding = new Padding(15);
             panelAcciones.Size = new Size(1120, 109);
@@ -484,9 +484,11 @@
             Controls.Add(panelMain);
             Controls.Add(panelHeader);
             FormBorderStyle = FormBorderStyle.FixedDialog;
+            MaximizeBox = false;
             Name = "Comisiones";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Sistema de Préstamos - Comisiones";
+            WindowState = FormWindowState.Minimized;
             Load += Comisiones_Load;
             panelHeader.ResumeLayout(false);
             panelHeader.PerformLayout();

@@ -70,7 +70,7 @@
             panelHeader.Location = new Point(0, 0);
             panelHeader.Margin = new Padding(4, 3, 4, 3);
             panelHeader.Name = "panelHeader";
-            panelHeader.Size = new Size(1400, 115);
+            panelHeader.Size = new Size(1364, 130);
             panelHeader.TabIndex = 0;
             // 
             // lblTitulo
@@ -78,7 +78,7 @@
             lblTitulo.AutoSize = true;
             lblTitulo.Font = new Font("Segoe UI", 24F, FontStyle.Bold);
             lblTitulo.ForeColor = Color.White;
-            lblTitulo.Location = new Point(23, 17);
+            lblTitulo.Location = new Point(23, 19);
             lblTitulo.Margin = new Padding(4, 0, 4, 0);
             lblTitulo.Name = "lblTitulo";
             lblTitulo.Size = new Size(154, 45);
@@ -90,7 +90,7 @@
             lblSubtitulo.AutoSize = true;
             lblSubtitulo.Font = new Font("Segoe UI", 12F);
             lblSubtitulo.ForeColor = Color.LightGray;
-            lblSubtitulo.Location = new Point(29, 75);
+            lblSubtitulo.Location = new Point(29, 85);
             lblSubtitulo.Margin = new Padding(4, 0, 4, 0);
             lblSubtitulo.Name = "lblSubtitulo";
             lblSubtitulo.Size = new Size(346, 21);
@@ -106,11 +106,11 @@
             panelContent.Controls.Add(btnActualizar);
             panelContent.Controls.Add(btnCerrar);
             panelContent.Dock = DockStyle.Fill;
-            panelContent.Location = new Point(0, 115);
+            panelContent.Location = new Point(0, 130);
             panelContent.Margin = new Padding(4, 3, 4, 3);
             panelContent.Name = "panelContent";
-            panelContent.Padding = new Padding(23);
-            panelContent.Size = new Size(1400, 750);
+            panelContent.Padding = new Padding(23, 26, 23, 26);
+            panelContent.Size = new Size(1364, 619);
             panelContent.TabIndex = 1;
             // 
             // groupBoxEmpleados
@@ -121,11 +121,11 @@
             groupBoxEmpleados.Controls.Add(lblDineroAsignado);
             groupBoxEmpleados.Controls.Add(txtDineroAsignado);
             groupBoxEmpleados.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            groupBoxEmpleados.Location = new Point(35, 35);
+            groupBoxEmpleados.Location = new Point(35, 40);
             groupBoxEmpleados.Margin = new Padding(4, 3, 4, 3);
             groupBoxEmpleados.Name = "groupBoxEmpleados";
             groupBoxEmpleados.Padding = new Padding(4, 3, 4, 3);
-            groupBoxEmpleados.Size = new Size(653, 138);
+            groupBoxEmpleados.Size = new Size(653, 156);
             groupBoxEmpleados.TabIndex = 0;
             groupBoxEmpleados.TabStop = false;
             groupBoxEmpleados.Text = "Selección de Empleado";
@@ -137,10 +137,10 @@
             btnAsignarDinero.FlatStyle = FlatStyle.Flat;
             btnAsignarDinero.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
             btnAsignarDinero.ForeColor = Color.White;
-            btnAsignarDinero.Location = new Point(533, 100);
+            btnAsignarDinero.Location = new Point(533, 113);
             btnAsignarDinero.Margin = new Padding(4, 3, 4, 3);
             btnAsignarDinero.Name = "btnAsignarDinero";
-            btnAsignarDinero.Size = new Size(112, 32);
+            btnAsignarDinero.Size = new Size(112, 36);
             btnAsignarDinero.TabIndex = 4;
             btnAsignarDinero.Text = "Asignar";
             btnAsignarDinero.UseVisualStyleBackColor = false;
@@ -149,7 +149,7 @@
             // 
             comboBoxEmpleados.Font = new Font("Segoe UI", 11F);
             comboBoxEmpleados.FormattingEnabled = true;
-            comboBoxEmpleados.Location = new Point(175, 40);
+            comboBoxEmpleados.Location = new Point(175, 45);
             comboBoxEmpleados.Margin = new Padding(4, 3, 4, 3);
             comboBoxEmpleados.Name = "comboBoxEmpleados";
             comboBoxEmpleados.Size = new Size(443, 28);
@@ -159,7 +159,7 @@
             // 
             lblEmpleado.AutoSize = true;
             lblEmpleado.Font = new Font("Segoe UI", 11F);
-            lblEmpleado.Location = new Point(23, 44);
+            lblEmpleado.Location = new Point(23, 50);
             lblEmpleado.Margin = new Padding(4, 0, 4, 0);
             lblEmpleado.Name = "lblEmpleado";
             lblEmpleado.Size = new Size(80, 20);
@@ -170,7 +170,7 @@
             // 
             lblDineroAsignado.AutoSize = true;
             lblDineroAsignado.Font = new Font("Segoe UI", 11F);
-            lblDineroAsignado.Location = new Point(23, 90);
+            lblDineroAsignado.Location = new Point(23, 102);
             lblDineroAsignado.Margin = new Padding(4, 0, 4, 0);
             lblDineroAsignado.Name = "lblDineroAsignado";
             lblDineroAsignado.Size = new Size(124, 20);
@@ -180,7 +180,7 @@
             // txtDineroAsignado
             // 
             txtDineroAsignado.Font = new Font("Segoe UI", 11F);
-            txtDineroAsignado.Location = new Point(175, 87);
+            txtDineroAsignado.Location = new Point(175, 99);
             txtDineroAsignado.Margin = new Padding(4, 3, 4, 3);
             txtDineroAsignado.Name = "txtDineroAsignado";
             txtDineroAsignado.Size = new Size(233, 27);
@@ -193,11 +193,11 @@
             groupBoxOperaciones.Controls.Add(btnControlIngresos);
             groupBoxOperaciones.Controls.Add(btnControlEgresos);
             groupBoxOperaciones.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            groupBoxOperaciones.Location = new Point(712, 35);
+            groupBoxOperaciones.Location = new Point(712, 40);
             groupBoxOperaciones.Margin = new Padding(4, 3, 4, 3);
             groupBoxOperaciones.Name = "groupBoxOperaciones";
             groupBoxOperaciones.Padding = new Padding(4, 3, 4, 3);
-            groupBoxOperaciones.Size = new Size(653, 175);
+            groupBoxOperaciones.Size = new Size(653, 198);
             groupBoxOperaciones.TabIndex = 1;
             groupBoxOperaciones.TabStop = false;
             groupBoxOperaciones.Text = "Operaciones";
@@ -207,12 +207,12 @@
             btnVerDetalles.BackColor = Color.FromArgb(46, 204, 113);
             btnVerDetalles.FlatAppearance.BorderSize = 0;
             btnVerDetalles.FlatStyle = FlatStyle.Flat;
-            btnVerDetalles.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            btnVerDetalles.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
             btnVerDetalles.ForeColor = Color.White;
-            btnVerDetalles.Location = new Point(23, 40);
+            btnVerDetalles.Location = new Point(23, 45);
             btnVerDetalles.Margin = new Padding(4, 3, 4, 3);
             btnVerDetalles.Name = "btnVerDetalles";
-            btnVerDetalles.Size = new Size(292, 52);
+            btnVerDetalles.Size = new Size(292, 59);
             btnVerDetalles.TabIndex = 0;
             btnVerDetalles.Text = "Ver Detalles";
             btnVerDetalles.UseVisualStyleBackColor = false;
@@ -223,12 +223,12 @@
             btnVerMovimientos.BackColor = Color.FromArgb(52, 152, 219);
             btnVerMovimientos.FlatAppearance.BorderSize = 0;
             btnVerMovimientos.FlatStyle = FlatStyle.Flat;
-            btnVerMovimientos.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            btnVerMovimientos.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
             btnVerMovimientos.ForeColor = Color.White;
-            btnVerMovimientos.Location = new Point(338, 40);
+            btnVerMovimientos.Location = new Point(338, 45);
             btnVerMovimientos.Margin = new Padding(4, 3, 4, 3);
             btnVerMovimientos.Name = "btnVerMovimientos";
-            btnVerMovimientos.Size = new Size(292, 52);
+            btnVerMovimientos.Size = new Size(292, 59);
             btnVerMovimientos.TabIndex = 1;
             btnVerMovimientos.Text = "📊 Ver Movimientos";
             btnVerMovimientos.UseVisualStyleBackColor = false;
@@ -239,12 +239,12 @@
             btnControlIngresos.BackColor = Color.FromArgb(155, 89, 182);
             btnControlIngresos.FlatAppearance.BorderSize = 0;
             btnControlIngresos.FlatStyle = FlatStyle.Flat;
-            btnControlIngresos.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            btnControlIngresos.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
             btnControlIngresos.ForeColor = Color.White;
-            btnControlIngresos.Location = new Point(23, 115);
+            btnControlIngresos.Location = new Point(23, 130);
             btnControlIngresos.Margin = new Padding(4, 3, 4, 3);
             btnControlIngresos.Name = "btnControlIngresos";
-            btnControlIngresos.Size = new Size(292, 52);
+            btnControlIngresos.Size = new Size(292, 59);
             btnControlIngresos.TabIndex = 2;
             btnControlIngresos.Text = "📈 Control de Ingresos";
             btnControlIngresos.UseVisualStyleBackColor = false;
@@ -254,12 +254,12 @@
             btnControlEgresos.BackColor = Color.FromArgb(231, 76, 60);
             btnControlEgresos.FlatAppearance.BorderSize = 0;
             btnControlEgresos.FlatStyle = FlatStyle.Flat;
-            btnControlEgresos.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            btnControlEgresos.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
             btnControlEgresos.ForeColor = Color.White;
-            btnControlEgresos.Location = new Point(338, 115);
+            btnControlEgresos.Location = new Point(338, 130);
             btnControlEgresos.Margin = new Padding(4, 3, 4, 3);
             btnControlEgresos.Name = "btnControlEgresos";
-            btnControlEgresos.Size = new Size(292, 52);
+            btnControlEgresos.Size = new Size(292, 59);
             btnControlEgresos.TabIndex = 3;
             btnControlEgresos.Text = "📉 Control de Egresos";
             btnControlEgresos.UseVisualStyleBackColor = false;
@@ -273,12 +273,12 @@
             groupBoxResumen.Controls.Add(txtTotalIngresos);
             groupBoxResumen.Controls.Add(txtTotalEgresos);
             groupBoxResumen.Controls.Add(txtSaldoActual);
-            groupBoxResumen.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
-            groupBoxResumen.Location = new Point(35, 196);
+            groupBoxResumen.Font = new Font("Segoe UI", 15F, FontStyle.Bold);
+            groupBoxResumen.Location = new Point(35, 222);
             groupBoxResumen.Margin = new Padding(4, 3, 4, 3);
             groupBoxResumen.Name = "groupBoxResumen";
             groupBoxResumen.Padding = new Padding(4, 3, 4, 3);
-            groupBoxResumen.Size = new Size(1330, 462);
+            groupBoxResumen.Size = new Size(1330, 524);
             groupBoxResumen.TabIndex = 2;
             groupBoxResumen.TabStop = false;
             groupBoxResumen.Text = "Resumen de Movimientos";
@@ -290,18 +290,18 @@
             dataGridViewMovimientos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewMovimientos.BackgroundColor = Color.White;
             dataGridViewMovimientos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewMovimientos.Location = new Point(4, 25);
+            dataGridViewMovimientos.Location = new Point(0, 39);
             dataGridViewMovimientos.Margin = new Padding(4, 3, 4, 3);
             dataGridViewMovimientos.Name = "dataGridViewMovimientos";
             dataGridViewMovimientos.ReadOnly = true;
-            dataGridViewMovimientos.Size = new Size(1322, 434);
+            dataGridViewMovimientos.Size = new Size(1298, 346);
             dataGridViewMovimientos.TabIndex = 0;
             // 
             // lblTotalIngresos
             // 
             lblTotalIngresos.AutoSize = true;
             lblTotalIngresos.Font = new Font("Segoe UI", 11F);
-            lblTotalIngresos.Location = new Point(23, 358);
+            lblTotalIngresos.Location = new Point(23, 406);
             lblTotalIngresos.Margin = new Padding(4, 0, 4, 0);
             lblTotalIngresos.Name = "lblTotalIngresos";
             lblTotalIngresos.Size = new Size(104, 20);
@@ -312,7 +312,7 @@
             // 
             lblTotalEgresos.AutoSize = true;
             lblTotalEgresos.Font = new Font("Segoe UI", 11F);
-            lblTotalEgresos.Location = new Point(467, 358);
+            lblTotalEgresos.Location = new Point(467, 406);
             lblTotalEgresos.Margin = new Padding(4, 0, 4, 0);
             lblTotalEgresos.Name = "lblTotalEgresos";
             lblTotalEgresos.Size = new Size(100, 20);
@@ -323,7 +323,7 @@
             // 
             lblSaldoActual.AutoSize = true;
             lblSaldoActual.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
-            lblSaldoActual.Location = new Point(910, 358);
+            lblSaldoActual.Location = new Point(910, 406);
             lblSaldoActual.Margin = new Padding(4, 0, 4, 0);
             lblSaldoActual.Name = "lblSaldoActual";
             lblSaldoActual.Size = new Size(100, 20);
@@ -333,7 +333,7 @@
             // txtTotalIngresos
             // 
             txtTotalIngresos.Font = new Font("Segoe UI", 11F);
-            txtTotalIngresos.Location = new Point(163, 354);
+            txtTotalIngresos.Location = new Point(163, 401);
             txtTotalIngresos.Margin = new Padding(4, 3, 4, 3);
             txtTotalIngresos.Name = "txtTotalIngresos";
             txtTotalIngresos.ReadOnly = true;
@@ -344,7 +344,7 @@
             // txtTotalEgresos
             // 
             txtTotalEgresos.Font = new Font("Segoe UI", 11F);
-            txtTotalEgresos.Location = new Point(607, 354);
+            txtTotalEgresos.Location = new Point(607, 401);
             txtTotalEgresos.Margin = new Padding(4, 3, 4, 3);
             txtTotalEgresos.Name = "txtTotalEgresos";
             txtTotalEgresos.ReadOnly = true;
@@ -355,7 +355,7 @@
             // txtSaldoActual
             // 
             txtSaldoActual.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
-            txtSaldoActual.Location = new Point(1050, 354);
+            txtSaldoActual.Location = new Point(1050, 401);
             txtSaldoActual.Margin = new Padding(4, 3, 4, 3);
             txtSaldoActual.Name = "txtSaldoActual";
             txtSaldoActual.ReadOnly = true;
@@ -370,10 +370,10 @@
             btnActualizar.FlatStyle = FlatStyle.Flat;
             btnActualizar.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             btnActualizar.ForeColor = Color.White;
-            btnActualizar.Location = new Point(1050, 681);
+            btnActualizar.Location = new Point(1050, 772);
             btnActualizar.Margin = new Padding(4, 3, 4, 3);
             btnActualizar.Name = "btnActualizar";
-            btnActualizar.Size = new Size(140, 46);
+            btnActualizar.Size = new Size(140, 52);
             btnActualizar.TabIndex = 3;
             btnActualizar.Text = "🔄 Actualizar";
             btnActualizar.UseVisualStyleBackColor = false;
@@ -385,19 +385,19 @@
             btnCerrar.FlatStyle = FlatStyle.Flat;
             btnCerrar.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             btnCerrar.ForeColor = Color.White;
-            btnCerrar.Location = new Point(1225, 681);
+            btnCerrar.Location = new Point(1225, 772);
             btnCerrar.Margin = new Padding(4, 3, 4, 3);
             btnCerrar.Name = "btnCerrar";
-            btnCerrar.Size = new Size(140, 46);
+            btnCerrar.Size = new Size(140, 52);
             btnCerrar.TabIndex = 4;
             btnCerrar.Text = "❌ Cerrar";
             btnCerrar.UseVisualStyleBackColor = false;
             // 
             // Caja
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1400, 865);
+            ClientSize = new Size(1364, 749);
             Controls.Add(panelContent);
             Controls.Add(panelHeader);
             FormBorderStyle = FormBorderStyle.FixedSingle;
@@ -406,6 +406,7 @@
             Name = "Caja";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Caja";
+            WindowState = FormWindowState.Maximized;
             panelHeader.ResumeLayout(false);
             panelHeader.PerformLayout();
             panelContent.ResumeLayout(false);
