@@ -22,6 +22,8 @@ namespace ProgramPrestamos
             conexionSQL = new ConexionSQL();
             ConfigurarListView();
             CargarEmpleados();
+            // Conectar el evento aquí
+            cmbPrestamoSeleccion.SelectedIndexChanged += cmbPrestamoSeleccion_SelectedIndexChanged;
         }
 
         private void ConfigurarListView()
@@ -153,38 +155,45 @@ namespace ProgramPrestamos
                 {
                     if (conexion != null)
                     {
-                        string query = @"SELECT p.PrestamoID, c.Nombre as Cliente, p.MontoTotal,
-                                        p.SaldoPendiente, p.FechaPrestamo, p.Estado, p.CantidadCuotas,
-                                       (SELECT COUNT(*) FROM Cuotas cu WHERE cu.PrestamoID = p.PrestamoID AND cu.FechaPago IS NULL) as CuotasPendientes
-                                       FROM Prestamos p
-                                       INNER JOIN Clientes c ON p.ClienteID = c.ClienteID
-                                       WHERE p.EmpleadoID = @EmpleadoID AND p.Estado = 'Activo'
-                                       ORDER BY p.FechaPrestamo DESC";
+                        string query = @"SELECT p.PrestamoID, 
+                                        c.Nombre as Cliente, 
+                                        p.MontoTotal,
+                                        p.SaldoPendiente, 
+                                        p.FechaPrestamo, 
+                                        p.Estado,
+                                        (p.CantidadCuotas - (SELECT COUNT(*) FROM Pagos WHERE PrestamoID = p.PrestamoID)) as CuotasPendientes
+                                 FROM Prestamos p
+                                 INNER JOIN Clientes c ON p.ClienteID = c.ClienteID
+                                 WHERE p.EmpleadoID = @EmpleadoID AND p.Estado = 'Activo'
+                                 ORDER BY p.FechaPrestamo DESC";
 
                         SqlCommand cmd = new SqlCommand(query, conexion);
                         cmd.Parameters.AddWithValue("@EmpleadoID", empleadoId);
 
                         listViewPrestamosActivos.Items.Clear();
-                        listViewPrestamosActivos.View = View.Details;
-                        listViewPrestamosActivos.Columns.Clear();
-                        listViewPrestamosActivos.Columns.Add("ID", 50);
-                        listViewPrestamosActivos.Columns.Add("Cliente", 150);
-                        listViewPrestamosActivos.Columns.Add("Monto Total", 100);
-                        listViewPrestamosActivos.Columns.Add("Saldo Pendiente", 120);
-                        listViewPrestamosActivos.Columns.Add("Cuotas Pend.", 100);
-                        listViewPrestamosActivos.Columns.Add("Fecha", 100);
-
-                        SqlDataReader reader = cmd.ExecuteReader();
-                        while (reader.Read())
+                        if (listViewPrestamosActivos.Columns.Count == 0)
                         {
-                            ListViewItem item = new ListViewItem(reader["PrestamoID"].ToString());
-                            item.SubItems.Add(reader["Cliente"].ToString());
-                            item.SubItems.Add(Convert.ToDecimal(reader["MontoTotal"]).ToString("C"));
-                            item.SubItems.Add(Convert.ToDecimal(reader["SaldoPendiente"]).ToString("C"));
-                            item.SubItems.Add(reader["CuotasPendientes"].ToString());
-                            item.SubItems.Add(Convert.ToDateTime(reader["FechaPrestamo"]).ToString("dd/MM/yyyy"));
+                            listViewPrestamosActivos.Columns.Add("ID", 50);
+                            listViewPrestamosActivos.Columns.Add("Cliente", 150);
+                            listViewPrestamosActivos.Columns.Add("Monto Total", 100);
+                            listViewPrestamosActivos.Columns.Add("Saldo Pendiente", 120);
+                            listViewPrestamosActivos.Columns.Add("Cuotas Pend.", 100);
+                            listViewPrestamosActivos.Columns.Add("Fecha", 100);
+                        }
 
-                            listViewPrestamosActivos.Items.Add(item);
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                ListViewItem item = new ListViewItem(reader["PrestamoID"].ToString());
+                                item.SubItems.Add(reader["Cliente"].ToString());
+                                item.SubItems.Add(Convert.ToDecimal(reader["MontoTotal"]).ToString("C"));
+                                item.SubItems.Add(Convert.ToDecimal(reader["SaldoPendiente"]).ToString("C"));
+                                item.SubItems.Add(reader["CuotasPendientes"].ToString());
+                                item.SubItems.Add(Convert.ToDateTime(reader["FechaPrestamo"]).ToString("dd/MM/yyyy"));
+
+                                listViewPrestamosActivos.Items.Add(item);
+                            }
                         }
                     }
                 }
@@ -217,14 +226,18 @@ namespace ProgramPrestamos
                         cmbPrestamoSeleccion.DisplayMember = "Display";
                         cmbPrestamoSeleccion.ValueMember = "PrestamoID";
 
-                        SqlDataReader reader = cmd.ExecuteReader();
-                        while (reader.Read())
+                        using (SqlDataReader reader = cmd.ExecuteReader())
                         {
-                            cmbPrestamoSeleccion.Items.Add(new
+                            var prestamos = new List<object>();
+                            while (reader.Read())
                             {
-                                PrestamoID = reader["PrestamoID"],
-                                Display = reader["Display"]
-                            });
+                                prestamos.Add(new
+                                {
+                                    PrestamoID = reader["PrestamoID"],
+                                    Display = reader["Display"]
+                                });
+                            }
+                            cmbPrestamoSeleccion.Items.AddRange(prestamos.ToArray());
                         }
                     }
                 }
@@ -236,108 +249,60 @@ namespace ProgramPrestamos
             }
         }
 
-        private void RegistrarPago()
+        private decimal _recargoCalculado = 0; // Campo para almacenar el recargo
+
+        private void cmbPrestamoSeleccion_SelectedIndexChanged(object sender, EventArgs e)
         {
+            txtMontoPagoInfo.Clear();
+            _recargoCalculado = 0; // Reiniciar recargo
+
+            if (cmbPrestamoSeleccion.SelectedItem == null)
+            {
+                return;
+            }
+
             try
             {
-                // Validar que se hayan completado todos los campos
-                if (cmbPrestamoSeleccion.SelectedItem == null)
-                {
-                    MessageBox.Show("Seleccione un préstamo.", "Advertencia",
-                                   MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-
-                if (string.IsNullOrWhiteSpace(txtMontoPagoInfo.Text))
-                {
-                    MessageBox.Show("Ingrese el monto del pago.", "Advertencia",
-                                   MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-
-                if (string.IsNullOrWhiteSpace(txtNumeroCuota.Text))
-                {
-                    MessageBox.Show("Ingrese el número de cuota.", "Advertencia",
-                                   MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
+                dynamic selectedPrestamo = cmbPrestamoSeleccion.SelectedItem;
+                int prestamoId = selectedPrestamo.PrestamoID;
 
                 using (SqlConnection conexion = conexionSQL.ObtenerConexion())
                 {
                     if (conexion != null)
                     {
-                        using (SqlTransaction transaction = conexion.BeginTransaction())
+                        // Obtener la próxima cuota a pagar y su fecha de vencimiento
+                        string query = @"SELECT TOP 1 ValorCuota, FechaVencimiento
+                                       FROM Cuotas
+                                       WHERE PrestamoID = @PrestamoID AND FechaPago IS NULL
+                                       ORDER BY NumeroCuota ASC";
+
+                        SqlCommand cmd = new SqlCommand(query, conexion);
+                        cmd.Parameters.AddWithValue("@PrestamoID", prestamoId);
+
+                        using (SqlDataReader reader = cmd.ExecuteReader())
                         {
-                            try
+                            if (reader.Read())
                             {
-                                dynamic selectedPrestamo = cmbPrestamoSeleccion.SelectedItem;
-                                int prestamoId = selectedPrestamo.PrestamoID;
-                                decimal montoPago = Convert.ToDecimal(txtMontoPagoInfo.Text);
-                                int numeroCuota = Convert.ToInt32(txtNumeroCuota.Text);
-                                DateTime fechaPago = dateTimePickerFechaPago.Value;
+                                decimal valorCuota = Convert.ToDecimal(reader["ValorCuota"]);
+                                DateTime fechaVencimiento = Convert.ToDateTime(reader["FechaVencimiento"]);
 
-                                // Obtener EmpleadoID del empleado seleccionado
-                                DataRow empleadoSeleccionado = (DataRow)dgvEmpleados.SelectedItems[0].Tag;
-                                int empleadoId = Convert.ToInt32(empleadoSeleccionado["EmpleadoID"]);
+                                // Calcular recargo si está vencida
+                                if (DateTime.Now.Date > fechaVencimiento.Date)
+                                {
+                                    int diasVencidos = (DateTime.Now.Date - fechaVencimiento.Date).Days;
+                                    int semanasVencidas = diasVencidos / 7;
+                                    if (semanasVencidas > 0)
+                                    {
+                                        _recargoCalculado = valorCuota * 0.10m * semanasVencidas;
+                                    }
+                                }
 
-                                // Insertar pago
-                                string queryPago = @"INSERT INTO Pagos (PrestamoID, NumeroCuota, MontoPago, FechaPago,
-                                                    FechaRegistro, EmpleadoID, TipoPago)
-                                                   VALUES (@PrestamoID, @NumeroCuota, @MontoPago, @FechaPago,
-                                                    @FechaRegistro, @EmpleadoID, @TipoPago)";
-
-                                SqlCommand cmdPago = new SqlCommand(queryPago, conexion, transaction);
-                                cmdPago.Parameters.AddWithValue("@PrestamoID", prestamoId);
-                                cmdPago.Parameters.AddWithValue("@NumeroCuota", numeroCuota);
-                                cmdPago.Parameters.AddWithValue("@MontoPago", montoPago);
-                                cmdPago.Parameters.AddWithValue("@FechaPago", fechaPago);
-                                cmdPago.Parameters.AddWithValue("@FechaRegistro", DateTime.Now);
-                                cmdPago.Parameters.AddWithValue("@EmpleadoID", empleadoId);
-                                cmdPago.Parameters.AddWithValue("@TipoPago", "Efectivo");
-
-                                cmdPago.ExecuteNonQuery();
-
-                                // Actualizar cuota
-                                string queryCuota = @"UPDATE Cuotas SET FechaPago = @FechaPago, MontoPagado = @MontoPagado
-                                                    WHERE PrestamoID = @PrestamoID AND NumeroCuota = @NumeroCuota";
-
-                                SqlCommand cmdCuota = new SqlCommand(queryCuota, conexion, transaction);
-                                cmdCuota.Parameters.AddWithValue("@FechaPago", fechaPago);
-                                cmdCuota.Parameters.AddWithValue("@MontoPagado", montoPago);
-                                cmdCuota.Parameters.AddWithValue("@PrestamoID", prestamoId);
-                                cmdCuota.Parameters.AddWithValue("@NumeroCuota", numeroCuota);
-
-                                cmdCuota.ExecuteNonQuery();
-
-                                // Actualizar saldo pendiente del préstamo
-                                string queryUpdatePrestamo = @"UPDATE Prestamos SET SaldoPendiente = SaldoPendiente - @MontoPago,
-                                                             UltimaFechaPago = @FechaPago
-                                                             WHERE PrestamoID = @PrestamoID";
-
-                                SqlCommand cmdUpdatePrestamo = new SqlCommand(queryUpdatePrestamo, conexion, transaction);
-                                cmdUpdatePrestamo.Parameters.AddWithValue("@MontoPago", montoPago);
-                                cmdUpdatePrestamo.Parameters.AddWithValue("@FechaPago", fechaPago);
-                                cmdUpdatePrestamo.Parameters.AddWithValue("@PrestamoID", prestamoId);
-
-                                cmdUpdatePrestamo.ExecuteNonQuery();
-
-                                transaction.Commit();
-
-                                MessageBox.Show("Pago registrado exitosamente.", "Éxito",
-                                               MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                                // Limpiar campos
-                                txtMontoPagoInfo.Clear();
-                                txtNumeroCuota.Clear();
-                                cmbPrestamoSeleccion.SelectedIndex = -1;
-
-                                // Recargar datos
-                                CargarPrestamosActivos(empleadoId);
+                                txtMontoPagoInfo.Text = (valorCuota + _recargoCalculado).ToString("F2");
                             }
-                            catch (Exception)
+                            else
                             {
-                                transaction.Rollback();
-                                throw;
+                                txtMontoPagoInfo.Text = "0.00";
+                                MessageBox.Show("Este préstamo no tiene cuotas pendientes de pago.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             }
                         }
                     }
@@ -345,8 +310,186 @@ namespace ProgramPrestamos
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error al registrar pago: {ex.Message}", "Error",
-                               MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Error al obtener datos de la cuota: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void RegistrarPago()
+        {
+            // --- Validaciones de UI ---
+            if (cmbPrestamoSeleccion.SelectedItem == null)
+            {
+                MessageBox.Show("Debe seleccionar un préstamo.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (!decimal.TryParse(txtMontoPagoInfo.Text, out decimal montoPago) || montoPago <= 0)
+            {
+                MessageBox.Show("El monto del pago debe ser un número válido y mayor a cero.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (dateTimePickerFechaPago.Value.Date > DateTime.Now.Date)
+            {
+                MessageBox.Show("La fecha de pago no puede ser una fecha futura.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            dynamic selectedPrestamo = cmbPrestamoSeleccion.SelectedItem;
+            int prestamoId = selectedPrestamo.PrestamoID;
+            DateTime fechaPago = dateTimePickerFechaPago.Value;
+            DataRow empleadoRow = (DataRow)dgvEmpleados.SelectedItems[0].Tag;
+            int empleadoId = Convert.ToInt32(empleadoRow["EmpleadoID"]);
+
+            using (SqlConnection conexion = conexionSQL.ObtenerConexion())
+            {
+                if (conexion == null) return;
+                SqlTransaction transaction = conexion.BeginTransaction();
+
+                try
+                {
+                    // --- Calcular la cuota a pagar basándonos en el nuevo modelo ---
+                    // Obtener el total de cuotas desde la tabla Prestamos, no desde Cuotas
+                    int totalCuotas = 0;
+                    using (SqlCommand cmd = new SqlCommand("SELECT CantidadCuotas FROM Prestamos WHERE PrestamoID = @PrestamoID", conexion, transaction))
+                    {
+                        cmd.Parameters.AddWithValue("@PrestamoID", prestamoId);
+                        object result = cmd.ExecuteScalar();
+                        if (result == null || result == DBNull.Value)
+                        {
+                            MessageBox.Show("No se encontró la información de cuotas para este préstamo.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            transaction.Rollback();
+                            return;
+                        }
+                        totalCuotas = Convert.ToInt32(result);
+                    }
+
+                    int cuotasPagadas = 0;
+                    using (SqlCommand cmd = new SqlCommand("SELECT COUNT(*) FROM Pagos WHERE PrestamoID = @PrestamoID", conexion, transaction))
+                    {
+                        cmd.Parameters.AddWithValue("@PrestamoID", prestamoId);
+                        cuotasPagadas = Convert.ToInt32(cmd.ExecuteScalar());
+                    }
+
+                    if (cuotasPagadas >= totalCuotas)
+                    {
+                        MessageBox.Show("Este préstamo ya ha sido completamente pagado.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        transaction.Rollback();
+                        return;
+                    }
+
+                    int numeroCuota = cuotasPagadas + 1;
+
+                    // Validación del monto a pagar: se puede comparar con el valor por cuota (más recargo, si corresponde)
+                    // Obtener el valor de la cuota desde la tabla Prestamos (podría usarse la tabla Cuotas si se decidiera mantener esa lógica)
+                    // Pero como "ValorCuota" también existe en Prestamos, se puede hacer de esta forma:
+                    decimal valorCuota = 0;
+                    using (SqlCommand cmd = new SqlCommand("SELECT ValorCuota FROM Prestamos WHERE PrestamoID = @PrestamoID", conexion, transaction))
+                    {
+                        cmd.Parameters.AddWithValue("@PrestamoID", prestamoId);
+                        object resValor = cmd.ExecuteScalar();
+                        if (resValor == null || resValor == DBNull.Value)
+                        {
+                            MessageBox.Show("No se encontró el valor de la cuota.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            transaction.Rollback();
+                            return;
+                        }
+                        valorCuota = Convert.ToDecimal(resValor);
+                    }
+                    // Se asume que _recargoCalculado se calculó previamente al seleccionar el préstamo
+                    decimal montoCuotaConRecargo = valorCuota + _recargoCalculado;
+                    if (montoPago > montoCuotaConRecargo)
+                    {
+                        MessageBox.Show($"El monto a pagar ({montoPago:C}) no puede ser mayor al valor de la cuota ({montoCuotaConRecargo:C}).", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        transaction.Rollback();
+                        return;
+                    }
+
+                    // --- Actualizar Prestamo: reducir SaldoPendiente ---
+                    string queryUpdatePrestamo = "UPDATE Prestamos SET SaldoPendiente = SaldoPendiente - @MontoPago, UltimaFechaPago = @FechaPago WHERE PrestamoID = @PrestamoID";
+                    using (SqlCommand cmd = new SqlCommand(queryUpdatePrestamo, conexion, transaction))
+                    {
+                        cmd.Parameters.AddWithValue("@MontoPago", montoPago);
+                        cmd.Parameters.AddWithValue("@FechaPago", fechaPago);
+                        cmd.Parameters.AddWithValue("@PrestamoID", prestamoId);
+                        cmd.ExecuteNonQuery();
+                    }
+
+                    // --- Registrar el pago en la tabla Pagos ---
+                    string queryInsertPago = @"
+                INSERT INTO Pagos (PrestamoID, NumeroCuota, MontoPago, FechaPago, FechaRegistro, EmpleadoID, TipoPago)
+                VALUES (@PrestamoID, @NumeroCuota, @MontoPago, @FechaPago, @FechaRegistro, @EmpleadoID, @TipoPago)";
+                    using (SqlCommand cmd = new SqlCommand(queryInsertPago, conexion, transaction))
+                    {
+                        cmd.Parameters.AddWithValue("@PrestamoID", prestamoId);
+                        cmd.Parameters.AddWithValue("@NumeroCuota", numeroCuota);
+                        cmd.Parameters.AddWithValue("@MontoPago", montoPago);
+                        cmd.Parameters.AddWithValue("@FechaPago", fechaPago);
+                        cmd.Parameters.AddWithValue("@FechaRegistro", DateTime.Now);
+                        cmd.Parameters.AddWithValue("@EmpleadoID", empleadoId);
+                        cmd.Parameters.AddWithValue("@TipoPago", "Efectivo");
+                        cmd.ExecuteNonQuery();
+                    }
+
+                    // --- Actualizar SaldoCaja del Empleado ---
+                    decimal saldoAnteriorCaja = 0;
+                    using (SqlCommand cmd = new SqlCommand("SELECT ISNULL(SaldoCaja, 0) FROM Empleados WHERE EmpleadoID = @EmpleadoID", conexion, transaction))
+                    {
+                        cmd.Parameters.AddWithValue("@EmpleadoID", empleadoId);
+                        object res = cmd.ExecuteScalar();
+                        saldoAnteriorCaja = res != null && res != DBNull.Value ? Convert.ToDecimal(res) : 0;
+                    }
+                    decimal nuevoSaldoCaja = saldoAnteriorCaja + montoPago;
+                    string queryUpdateCaja = "UPDATE Empleados SET SaldoCaja = @NuevoSaldoCaja WHERE EmpleadoID = @EmpleadoID";
+                    using (SqlCommand cmd = new SqlCommand(queryUpdateCaja, conexion, transaction))
+                    {
+                        cmd.Parameters.AddWithValue("@NuevoSaldoCaja", nuevoSaldoCaja);
+                        cmd.Parameters.AddWithValue("@EmpleadoID", empleadoId);
+                        cmd.ExecuteNonQuery();
+                    }
+
+                    // --- Registrar Movimiento de Caja ---
+                    string queryInsertMovimiento = @"
+                INSERT INTO MovimientosCaja (EmpleadoID, TipoMovimiento, Monto, Descripcion, FechaMovimiento, SaldoAnterior, SaldoNuevo)
+                VALUES (@EmpleadoID, @TipoMovimiento, @Monto, @Descripcion, @FechaMovimiento, @SaldoAnterior, @SaldoNuevo)";
+                    using (SqlCommand cmd = new SqlCommand(queryInsertMovimiento, conexion, transaction))
+                    {
+                        cmd.Parameters.AddWithValue("@EmpleadoID", empleadoId);
+                        cmd.Parameters.AddWithValue("@TipoMovimiento", "Entrada");
+                        cmd.Parameters.AddWithValue("@Monto", montoPago);
+                        cmd.Parameters.AddWithValue("@Descripcion", $"Pago cuota {numeroCuota} del préstamo #{prestamoId}");
+                        cmd.Parameters.AddWithValue("@FechaMovimiento", DateTime.Now);
+                        cmd.Parameters.AddWithValue("@SaldoAnterior", saldoAnteriorCaja);
+                        cmd.Parameters.AddWithValue("@SaldoNuevo", nuevoSaldoCaja);
+                        cmd.ExecuteNonQuery();
+                    }
+
+                    // --- Actualizar estado del préstamo si es pagado ---
+                    decimal nuevoSaldoPrestamo = 0;
+                    using (SqlCommand cmd = new SqlCommand("SELECT SaldoPendiente FROM Prestamos WHERE PrestamoID = @PrestamoID", conexion, transaction))
+                    {
+                        cmd.Parameters.AddWithValue("@PrestamoID", prestamoId);
+                        nuevoSaldoPrestamo = Convert.ToDecimal(cmd.ExecuteScalar());
+                    }
+                    if (nuevoSaldoPrestamo <= 0)
+                    {
+                        string queryUpdateEstado = "UPDATE Prestamos SET Estado = 'Pagado' WHERE PrestamoID = @PrestamoID";
+                        using (SqlCommand cmd = new SqlCommand(queryUpdateEstado, conexion, transaction))
+                        {
+                            cmd.Parameters.AddWithValue("@PrestamoID", prestamoId);
+                            cmd.ExecuteNonQuery();
+                        }
+                    }
+
+                    transaction.Commit();
+                    MessageBox.Show("Pago registrado exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    CargarPrestamosActivos(empleadoId);
+                    CargarPrestamosComboBox(empleadoId);
+                    txtMontoPagoInfo.Clear();
+                }
+                catch (Exception ex)
+                {
+                    transaction.Rollback();
+                    MessageBox.Show($"Error al registrar el pago: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 

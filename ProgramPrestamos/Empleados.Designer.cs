@@ -62,8 +62,6 @@
             lblPrestamosActivosInfo = new Label();
             panelRegistrarPago = new Panel();
             btnRegistrarPagoInfo = new Button();
-            txtNumeroCuota = new TextBox();
-            lblNumeroCuota = new Label();
             dateTimePickerFechaPago = new DateTimePicker();
             lblFechaPago = new Label();
             txtMontoPagoInfo = new TextBox();
@@ -468,8 +466,6 @@
             // 
             panelRegistrarPago.BackColor = Color.FromArgb(236, 240, 241);
             panelRegistrarPago.Controls.Add(btnRegistrarPagoInfo);
-            panelRegistrarPago.Controls.Add(txtNumeroCuota);
-            panelRegistrarPago.Controls.Add(lblNumeroCuota);
             panelRegistrarPago.Controls.Add(dateTimePickerFechaPago);
             panelRegistrarPago.Controls.Add(lblFechaPago);
             panelRegistrarPago.Controls.Add(txtMontoPagoInfo);
@@ -496,26 +492,7 @@
             btnRegistrarPagoInfo.TabIndex = 9;
             btnRegistrarPagoInfo.Text = "💰 Registrar Pago";
             btnRegistrarPagoInfo.UseVisualStyleBackColor = false;
-            // 
-            // txtNumeroCuota
-            // 
-            txtNumeroCuota.BorderStyle = BorderStyle.FixedSingle;
-            txtNumeroCuota.Font = new Font("Segoe UI", 10F);
-            txtNumeroCuota.Location = new Point(700, 62);
-            txtNumeroCuota.Name = "txtNumeroCuota";
-            txtNumeroCuota.Size = new Size(100, 25);
-            txtNumeroCuota.TabIndex = 8;
-            // 
-            // lblNumeroCuota
-            // 
-            lblNumeroCuota.AutoSize = true;
-            lblNumeroCuota.Font = new Font("Segoe UI", 10F);
-            lblNumeroCuota.ForeColor = Color.FromArgb(52, 73, 94);
-            lblNumeroCuota.Location = new Point(700, 44);
-            lblNumeroCuota.Name = "lblNumeroCuota";
-            lblNumeroCuota.Size = new Size(79, 19);
-            lblNumeroCuota.TabIndex = 7;
-            lblNumeroCuota.Text = "Nro. Cuota:";
+            btnRegistrarPagoInfo.Click += btnRegistrarPagoInfo_Click;
             // 
             // dateTimePickerFechaPago
             // 
@@ -661,8 +638,6 @@
         private Label lblPrestamosActivosInfo;
         private Panel panelRegistrarPago;
         private Button btnRegistrarPagoInfo;
-        private TextBox txtNumeroCuota;
-        private Label lblNumeroCuota;
         private DateTimePicker dateTimePickerFechaPago;
         private Label lblFechaPago;
         private TextBox txtMontoPagoInfo;

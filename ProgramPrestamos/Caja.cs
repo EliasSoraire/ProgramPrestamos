@@ -23,7 +23,6 @@ namespace ProgramPrestamos
                 {
                     if (conexion == null) return;
 
-                    // Consulta SQL para obtener los empleados con más detalles si se solicita
                     string query = mostrarDetalles
                         ? @"
                             SELECT 

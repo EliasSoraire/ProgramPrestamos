@@ -135,7 +135,6 @@ namespace ProgramPrestamos
 
                 lblPrecioProducto.Text = $"Precio: ${precioProductoSeleccionado}";
 
-                // Cargar cantidades disponibles
                 cmbCantidadProducto.Items.Clear();
                 for (int i = 1; i <= stockProductoSeleccionado; i++)
                 {
@@ -304,12 +303,18 @@ namespace ProgramPrestamos
 
                         try
                         {
+                            // Calcular la fecha de vencimiento final del préstamo
+                            int cantidadCuotas = int.Parse(txtCantidadCuotas.Text);
+                            string modalidad = cmbModalidad.SelectedItem.ToString();
+                            DateTime fechaBase = dtpFechaPrestamo.Value;
+                            DateTime fechaVencimientoFinal = CalcularFechaVencimiento(fechaBase, cantidadCuotas, modalidad);
+
                             // Insertar préstamo
                             string queryPrestamo = @"INSERT INTO Prestamos 
                                 (ClienteID, EmpleadoID, TipoPrestamo, MontoTotal, TasaInteres, CantidadCuotas, 
-                                 Modalidad, FechaPrestamo, TotalAPagar, ValorCuota, SaldoPendiente, Estado, FechaCreacion)
+                                 Modalidad, FechaPrestamo, FechaVencimiento, TotalAPagar, ValorCuota, SaldoPendiente, Estado, FechaCreacion)
                                 VALUES (@ClienteID, @EmpleadoID, @TipoPrestamo, @MontoTotal, @TasaInteres, @CantidadCuotas,
-                                        @Modalidad, @FechaPrestamo, @TotalAPagar, @ValorCuota, @SaldoPendiente, @Estado, @FechaCreacion);
+                                        @Modalidad, @FechaPrestamo, @FechaVencimiento, @TotalAPagar, @ValorCuota, @SaldoPendiente, @Estado, @FechaCreacion);
                                 SELECT SCOPE_IDENTITY();";
 
                             SqlCommand cmdPrestamo = new SqlCommand(queryPrestamo, conn, transaction);
@@ -318,9 +323,10 @@ namespace ProgramPrestamos
                             cmdPrestamo.Parameters.AddWithValue("@TipoPrestamo", rbPrestamoEfectivo.Checked ? "Efectivo" : "Producto");
                             cmdPrestamo.Parameters.AddWithValue("@MontoTotal", rbPrestamoEfectivo.Checked ? int.Parse(txtImporte.Text) : precioProductoSeleccionado * int.Parse(cmbCantidadProducto.SelectedItem.ToString()));
                             cmdPrestamo.Parameters.AddWithValue("@TasaInteres", int.Parse(txtTasaInteres.Text));
-                            cmdPrestamo.Parameters.AddWithValue("@CantidadCuotas", int.Parse(txtCantidadCuotas.Text));
-                            cmdPrestamo.Parameters.AddWithValue("@Modalidad", cmbModalidad.SelectedItem.ToString());
-                            cmdPrestamo.Parameters.AddWithValue("@FechaPrestamo", dtpFechaPrestamo.Value);
+                            cmdPrestamo.Parameters.AddWithValue("@CantidadCuotas", cantidadCuotas);
+                            cmdPrestamo.Parameters.AddWithValue("@Modalidad", modalidad);
+                            cmdPrestamo.Parameters.AddWithValue("@FechaPrestamo", fechaBase);
+                            cmdPrestamo.Parameters.AddWithValue("@FechaVencimiento", fechaVencimientoFinal); // Parámetro añadido
                             cmdPrestamo.Parameters.AddWithValue("@TotalAPagar", totalAPagar);
                             cmdPrestamo.Parameters.AddWithValue("@ValorCuota", valorCuota);
                             cmdPrestamo.Parameters.AddWithValue("@SaldoPendiente", totalAPagar);
@@ -399,27 +405,30 @@ namespace ProgramPrestamos
             return 1; // Valor por defecto
         }
 
+        // Método GenerarCuotas que inserta una sola fila resumen en la tabla Cuotas
         private void GenerarCuotas(int prestamoID, SqlConnection conn, SqlTransaction transaction)
         {
             int cantidadCuotas = int.Parse(txtCantidadCuotas.Text);
             string modalidad = cmbModalidad.SelectedItem.ToString();
             DateTime fechaBase = dtpFechaPrestamo.Value;
 
-            for (int i = 1; i <= cantidadCuotas; i++)
-            {
-                DateTime fechaVencimiento = CalcularFechaVencimiento(fechaBase, i, modalidad);
+            // Calcular la fecha final de vencimiento (vencimiento de la última cuota)
+            DateTime fechaVencimientoFinal = CalcularFechaVencimiento(fechaBase, cantidadCuotas, modalidad);
 
-                string queryCuota = @"INSERT INTO Cuotas 
-                    (PrestamoID, NumeroCuota, FechaVencimiento, ValorCuota)
-                    VALUES (@PrestamoID, @NumeroCuota, @FechaVencimiento, @ValorCuota)";
-
-                SqlCommand cmdCuota = new SqlCommand(queryCuota, conn, transaction);
-                cmdCuota.Parameters.AddWithValue("@PrestamoID", prestamoID);
-                cmdCuota.Parameters.AddWithValue("@NumeroCuota", i);
-                cmdCuota.Parameters.AddWithValue("@FechaVencimiento", fechaVencimiento);
-                cmdCuota.Parameters.AddWithValue("@ValorCuota", valorCuota);
-                cmdCuota.ExecuteNonQuery();
-            }
+            // Se inserta una sola fila en Cuotas:
+            // - PrestamoID: ID del préstamo recién insertado.
+            // - NumeroCuota: se guarda la cantidad total de cuotas.
+            // - FechaVencimiento: fecha final de vencimiento del préstamo.
+            // - ValorCuota: valor de cada cuota.
+            string queryCuota = @"INSERT INTO Cuotas 
+                          (PrestamoID, NumeroCuota, FechaVencimiento, ValorCuota)
+                          VALUES (@PrestamoID, @CantidadCuotas, @FechaVencimiento, @ValorCuota)";
+            SqlCommand cmdCuota = new SqlCommand(queryCuota, conn, transaction);
+            cmdCuota.Parameters.AddWithValue("@PrestamoID", prestamoID);
+            cmdCuota.Parameters.AddWithValue("@CantidadCuotas", cantidadCuotas);
+            cmdCuota.Parameters.AddWithValue("@FechaVencimiento", fechaVencimientoFinal);
+            cmdCuota.Parameters.AddWithValue("@ValorCuota", valorCuota);
+            cmdCuota.ExecuteNonQuery();
         }
 
         private DateTime CalcularFechaVencimiento(DateTime fechaBase, int numeroCuota, string modalidad)

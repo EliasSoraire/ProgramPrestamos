@@ -210,7 +210,6 @@ namespace ProgramPrestamos
                 txtDNI.Text = row.Cells["DNI"].Value?.ToString() ?? "";
                 txtTelefono.Text = row.Cells["Telefono"].Value?.ToString() ?? "";
 
-                // Cargar datos adicionales del cliente
                 using (SqlConnection conexion = conexionSQL.ObtenerConexion())
                 {
                     if (conexion != null)

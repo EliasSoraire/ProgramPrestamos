@@ -23,7 +23,6 @@ namespace ProgramPrestamos
             this.Activated += (s, e) => ActualizarYRecargarDatos();
         }
 
-        // Nuevo método centralizado para actualizar y recargar
         private void ActualizarYRecargarDatos()
         {
             ActualizarRecargosEnBD();
